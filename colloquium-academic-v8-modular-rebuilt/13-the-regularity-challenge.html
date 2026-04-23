@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MU Colloquium · Slide 13 · The challenge is real</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="shared/deck.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script defer src="../vendor/katex/katex.min.js"></script>
+  <script defer src="../vendor/katex/contrib/auto-render.min.js"></script>
+  <script defer src="shared/deck.js?v=20260421-deck-overview"></script>
+  <style>
+    /* Unified 11b-style cards (overrides shared deck.css visual treatment) */
+    .bluebox, .greenbox, .goldbox, .redbox {
+      border-radius: 8px;
+      padding: 0.65em 0.85em 0.55em;
+      margin: 0.4em 0;
+      border: none;
+      border-left: 3px solid #2f5d9c;
+      box-shadow: none;
+    }
+    .bluebox  { background: #eaf2f8; border-left-color: #2f5d9c; }
+    .greenbox { background: #edf5ea; border-left-color: #2f7a4d; }
+    .goldbox  { background: #f6f1e3; border-left-color: #c28c2d; }
+    .redbox   { background: #f7ebea; border-left-color: #a43d2d; }
+    .challenge-warning p {
+      margin: 0;
+      font-size: 0.86em;
+      line-height: 1.33;
+      color: var(--ink);
+    }
+  </style>
+</head>
+<body class="modular-slide" data-prev="12-the-theory.html" data-next="13b-status-before-our-result.html" data-home="index.html">
+  <header class="modular-nav">
+    <div class="modular-nav__group">
+      <a class="" href="12-the-theory.html">Prev</a>
+      <a class="" href="index.html">Deck</a>
+      <div class="modular-nav__meta">Slide 13/46</div>
+      <a class="" href="13b-status-before-our-result.html">Next</a>
+    </div>
+  </header>
+  <div class="reveal standalone-reveal">
+    <div class="slides">
+<section>
+  <h2 data-kicker="Endpoint regularity">The challenge is real</h2>
+  <p style="max-width:34em; margin-bottom:0.55em;">
+    A Gaussian prior is fully supported; data rarely is.
+    Something has to break down as $t \to 1$.
+  </p>
+  <div class="bluebox" style="font-size:0.82em;">
+    <span class="title">Vector field near terminal time</span>
+    $$u_t(y)=\frac{\dot{\beta}_t}{\beta_t}\,y+\frac{\dot{\alpha}_t\beta_t-\alpha_t\dot{\beta}_t}{\beta_t}\,\E[X\mid X_t=y]$$
+    As $t \to 1$, $\beta_t \to 0$ &mdash; the denominator creates a genuine blow-up risk at the endpoint.
+  </div>
+  <div class="redbox" style="margin-top:0.45em; font-size:0.78em; line-height:1.28;">
+    <span class="title">Prop. C.4 &mdash; Elucidating, Appendix C.2</span>
+    Let $\Omega = \supp(p)$ and $\sigma_\Omega$ its medial axis.
+    If $\Omega = \R^d$ with Lipschitz density, $u_t$ stays bounded on $[0,1)$.
+    If $\Omega \neq \R^d$, then $\lim_{t\to 1}\|u_t(x)\|=\infty$ for every $x\notin\Omega\cup\sigma_\Omega$.
+  </div>
+  <div class="goldbox challenge-warning" style="margin-top:0.45em; font-size:0.78em; line-height:1.28;">
+    <span class="title">Textbook ODE warning</span>
+    <p>Many ODE techniques we learn from textbooks rely on a Lipschitz vector field. We do not have that here. So the earlier continuity-equation story for $(u_t,p_t)$ was slightly lying to you.</p>
+  </div>
+  <aside class="notes">
+    There really is a terminal-time singularity when the data support is not full.
+    Textbook ODE tools would be comfortable if the field were Lipschitz; here the point is
+    that the endpoint singularity removes that comfort.
+  </aside>
+</section>
+    </div>
+  </div>
+</body>
+</html>

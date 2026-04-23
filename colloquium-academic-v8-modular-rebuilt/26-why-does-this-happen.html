@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MU Colloquium · Slide 28 · Why does this happen?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="shared/deck.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script defer src="../vendor/katex/katex.min.js"></script>
+  <script defer src="../vendor/katex/contrib/auto-render.min.js"></script>
+  <script defer src="shared/deck.js?v=20260421-deck-overview"></script>
+  <style>
+    .bluebox, .greenbox {
+      border-radius: 8px;
+      padding: 0.62em 0.82em 0.54em;
+      margin: 0.36em 0;
+      border: none;
+      box-shadow: none;
+      border-left: 3px solid #2f5d9c;
+    }
+    .bluebox  { background: #eaf2f8; border-left-color: #2f5d9c; }
+    .greenbox { background: #edf5ea; border-left-color: #2f7a4d; }
+    .discrete-optimum-box .katex-display {
+      margin: 0.18em 0 0;
+      font-size: 0.95em;
+    }
+    .discrete-takeaway {
+      text-align: center;
+      font-size: 0.84em;
+      margin-top: 0.46em;
+      color: #314765;
+    }
+    .mechanism-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      gap: 0.78em;
+      align-items: stretch;
+    }
+    .copy-stack {
+      display: grid;
+      gap: 0.36em;
+    }
+    .flip-figure {
+      width: 100%;
+      margin: 0;
+      text-align: center;
+      display: grid;
+      align-content: start;
+    }
+    .copy-stack .greenbox,
+    .copy-stack .bluebox {
+      margin: 0;
+    }
+    .flip-toggle {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      text-align: inherit;
+    }
+    .flip-toggle:focus-visible {
+      outline: 2px solid #2f5d9c;
+      outline-offset: 4px;
+      border-radius: 14px;
+    }
+    .flip-toggle__stage {
+      position: relative;
+      width: 100%;
+      height: min(41vh, 24rem);
+      min-height: 320px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255, 253, 249, 0.92);
+      border: 1px solid rgba(47, 93, 156, 0.12);
+    }
+    .flip-toggle__layer {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 0.22em 0.24em 0.28em;
+      opacity: 0;
+      transform: rotateY(-90deg) scale(0.97);
+      transition: transform 0.38s ease, opacity 0.28s ease;
+    }
+    .flip-toggle__layer--front {
+      opacity: 1;
+      transform: rotateY(0deg) scale(1);
+    }
+    .flip-toggle.is-flipped .flip-toggle__layer--front {
+      opacity: 0;
+      transform: rotateY(90deg) scale(0.97);
+    }
+    .flip-toggle.is-flipped .flip-toggle__layer--back {
+      opacity: 1;
+      transform: rotateY(0deg) scale(1);
+    }
+    .flip-toggle img {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+    .flip-figure .caption {
+      margin-top: 0.18em;
+      font-size: 0.6em;
+      line-height: 1.25;
+      color: #4b5a6c;
+    }
+  </style>
+</head>
+<body class="modular-slide" data-prev="25-zoom-in-discrete-case.html" data-next="27-the-memorization-corollary.html" data-home="index.html">
+  <header class="modular-nav">
+    <div class="modular-nav__group">
+      <a class="" href="25-zoom-in-discrete-case.html">Prev</a>
+      <a class="" href="index.html">Deck</a>
+      <div class="modular-nav__meta">Slide 28/46</div>
+      <a class="" href="27-the-memorization-corollary.html">Next</a>
+    </div>
+  </header>
+  <div class="reveal standalone-reveal">
+    <div class="slides">
+<section>
+  <h2 data-kicker="Discrete denoiser">Why does this happen?</h2>
+
+  <p style="max-width:41em; margin:0.12em 0 0.32em 0; font-size:0.9em;">
+    On empirical data, the denoiser loss itself already pushes toward a soft nearest-neighbor rule.
+  </p>
+
+  <div class="mechanism-grid">
+    <div class="copy-stack">
+      <div class="greenbox" style="font-size:0.8em;">
+        <span class="title">Recall &mdash; denoiser training loss</span>
+        $$\min_\theta\;\E_{\sigma,X,Z}\,\bigl\|m_\sigma^\theta(X+\sigma Z)-X\bigr\|^2.$$
+      </div>
+
+      <div class="bluebox discrete-optimum-box" style="font-size:0.74em; line-height:1.18;">
+        <span class="title">Unique closed-form optimum on discrete $p$</span>
+        $$
+        \begin{aligned}
+        m_\sigma(x)
+        &= \sum_{i=1}^{N}\frac{e^{-\|x-x_i\|^2/(2\sigma^2)}}{\sum_{j=1}^{N} e^{-\|x-x_j\|^2/(2\sigma^2)}}\, x_i \\
+        &\xrightarrow{\sigma\to 0}\; \arg\min_{x_i}\|x-x_i\|.
+        \end{aligned}
+        $$
+        <div style="margin-top:0.22em; color:#314765;">
+          As $\sigma\to 0$, the softmax weights collapse onto the nearest observation.
+        </div>
+      </div>
+    </div>
+
+    <figure class="flip-figure">
+      <button type="button" class="flip-toggle" data-flip-card aria-pressed="false" aria-label="Show the terminal Voronoi diagram">
+        <div class="flip-toggle__stage">
+          <div class="flip-toggle__layer flip-toggle__layer--front">
+            <img src="../figures/m_sigma_plot.png"
+                 alt="Plot of m_sigma(x) for the two-point support {-1,+1} across several sigma values, sharpening toward the nearest-neighbor step at sigma=0"/>
+          </div>
+          <div class="flip-toggle__layer flip-toggle__layer--back">
+            <img src="../figures/voronoi_left_panel.png"
+                 alt="Single Voronoi basin diagram showing the nearest-neighbor partition induced in the terminal limit"/>
+          </div>
+        </div>
+      </button>
+      <figcaption class="caption">
+        Click the figure to flip from the two-point support plot to the terminal Voronoi partition.
+      </figcaption>
+    </figure>
+  </div>
+
+  <p class="discrete-takeaway">
+    This is the mechanism behind the discrete decoder:
+    the denoiser becomes <strong>nearest-neighbor in the terminal regime</strong>.
+  </p>
+
+  <aside class="notes">
+    The previous slide stated the memorization story at the level of the exact decoder map.
+    This slide explains the mechanism at the denoiser level before the neural-network corollary on the next click.
+  </aside>
+</section>
+    </div>
+  </div>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('[data-flip-card]').forEach(function (card) {
+        card.addEventListener('click', function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          var flipped = card.classList.toggle('is-flipped');
+          card.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+          card.setAttribute('aria-label', flipped ? 'Show the two-point support plot' : 'Show the terminal Voronoi diagram');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

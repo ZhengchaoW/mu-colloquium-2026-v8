@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MU Colloquium · Slide 31 · EDM-1K is already a memorizing model</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="shared/deck.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script defer src="../vendor/katex/katex.min.js"></script>
+  <script defer src="../vendor/katex/contrib/auto-render.min.js"></script>
+  <script defer src="shared/deck.js?v=20260421-deck-overview"></script>
+  <style>
+    .setup-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.45em;
+      margin: 0.08em 0 0.18em;
+    }
+
+    .setup-pill {
+      border-radius: 999px;
+      padding: 0.24em 0.64em 0.2em;
+      background: #edf3f8;
+      border: 1px solid rgba(47, 93, 156, 0.12);
+      font-size: 0.44em;
+      line-height: 1.2;
+      color: #36516f;
+    }
+
+    .hero-figure {
+      margin: 0.2em auto 0;
+      width: 100%;
+      max-width: 82rem;
+      height: 42rem;
+      max-height: 72vh;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .reveal section .hero-figure img {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      border-radius: 14px;
+      box-shadow: 0 18px 42px rgba(35, 47, 62, 0.08);
+    }
+
+    .hero-caption {
+      margin-top: 0.34em;
+      font-size: 0.7em;
+      line-height: 1.32;
+      color: #4b5a6c;
+      max-width: 43rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 900px) {
+      .hero-figure {
+        width: 98vw;
+      }
+      .hero-figure img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body class="modular-slide" data-prev="28-two-calm-ends-one-wild-middle.html" data-next="30-small-is-not-the-memorizing-regime.html" data-home="index.html">
+  <header class="modular-nav">
+    <div class="modular-nav__group">
+      <a class="" href="28-two-calm-ends-one-wild-middle.html">Prev</a>
+      <a class="" href="index.html">Deck</a>
+      <div class="modular-nav__meta">Slide 31/46</div>
+      <a class="" href="30-small-is-not-the-memorizing-regime.html">Next</a>
+    </div>
+  </header>
+  <div class="reveal standalone-reveal">
+    <div class="slides">
+<section>
+  <h2 data-kicker="EDM (Karras et al., 2022) retrained on 1K CIFAR-10">EDM-1K is already a memorizing model</h2>
+
+  <div class="setup-row">
+    <div class="setup-pill">Model: standard EDM sampler / denoiser from Karras et al., NeurIPS 2022</div>
+    <div class="setup-pill">Training set: 1,000 CIFAR-10 images</div>
+  </div>
+
+  <figure class="hero-figure">
+    <img src="../figures/slide29_legacy_edm_top1k_sample_path_panel.png"
+         alt="Three deterministic random seeds for legacy EDM top1k, each showing the 18-step reverse ODE state on the top row, the matched one-step denoiser output on the bottom row, and the final top1k nearest neighbor on the right"/>
+  </figure>
+
+  <aside class="notes">
+    First introduce the concrete memorizing model with almost no theory.
+    Just say: standard EDM, retrained on 1K CIFAR-10.
+    Then read the picture left to right: the path evolves over 18 ODE steps, the denoiser readout is shown at each same state, and the endpoint lands near a training image.
+    This sets up the next slide's question about whether small-noise one-step behavior is already nearest-neighbor-like.
+  </aside>
+</section>
+    </div>
+  </div>
+</body>
+</html>

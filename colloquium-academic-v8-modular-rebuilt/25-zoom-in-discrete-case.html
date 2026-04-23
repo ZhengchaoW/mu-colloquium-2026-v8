@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MU Colloquium · Slide 27 · Zoom in: the discrete case</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="shared/deck.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script defer src="../vendor/katex/katex.min.js"></script>
+  <script defer src="../vendor/katex/contrib/auto-render.min.js"></script>
+  <script defer src="shared/deck.js?v=20260421-deck-overview"></script>
+  <style>
+    .bluebox, .redbox {
+      border-radius: 10px;
+      padding: 0.66em 0.82em 0.58em;
+      margin: 0;
+      border: none;
+      box-shadow: none;
+      min-height: 100%;
+    }
+    .bluebox {
+      background: #eaf2f8;
+      border-left: 3px solid #2f5d9c;
+    }
+    .redbox {
+      background: #f7ebea;
+      border-left: 3px solid #a43d2d;
+    }
+    .discrete-story {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0.72em;
+      margin-top: 0.38em;
+      align-items: stretch;
+    }
+    .discrete-story .title {
+      display: block;
+      margin-bottom: 0.08em;
+    }
+    .discrete-story p {
+      margin: 0.12em 0 0;
+      font-size: 0.78em;
+      line-height: 1.28;
+      color: #314765;
+    }
+    .discrete-story .katex-display {
+      margin: 0.15em 0;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body class="modular-slide" data-prev="24-manifold-vs-discrete-rates.html" data-next="26-why-does-this-happen.html" data-home="index.html">
+  <header class="modular-nav">
+    <div class="modular-nav__group">
+      <a class="" href="24-manifold-vs-discrete-rates.html">Prev</a>
+      <a class="" href="index.html">Deck</a>
+      <div class="modular-nav__meta">Slide 27/46</div>
+      <a class="" href="26-why-does-this-happen.html">Next</a>
+    </div>
+  </header>
+  <div class="reveal standalone-reveal">
+    <div class="slides">
+<section>
+  <h2 data-kicker="In practice, data is empirical">Zoom in: the discrete case</h2>
+
+  <p style="max-width:36em; margin:0.12em 0 0.14em 0; font-size:0.82em; color:#314765;">
+    In practice, all we actually observe is a finite collection of samples $\{x_1,\ldots,x_N\}$.
+  </p>
+
+  <div class="discrete-story">
+    <div class="bluebox">
+      <span class="title">Empirical distribution</span>
+      <p>
+        We package those observations into
+      </p>
+      $$p \;=\; \frac{1}{N}\sum_{i=1}^N \delta_{x_i}.$$
+      <p>
+        So $\mathrm{supp}(p)=\{x_1,\ldots,x_N\}$ is exactly the finite training set.
+      </p>
+    </div>
+
+    <div class="redbox">
+      <span class="title">Terminal theory</span>
+      <p>
+        The previous slide gives the flow map
+      </p>
+      $$(\Psi_1)_\# \gamma = p,$$
+      <p>
+        so each initial noise sample is sent onto one atom of the empirical distribution:
+        one training image.
+      </p>
+    </div>
+  </div>
+
+  <aside class="notes">
+    This is the conceptual pivot:
+    in practice the target is empirical, not an inaccessible ground-truth distribution.
+    The terminal theorem already says the exact decoder lands on the empirical support.
+    Next slide: why the denoiser formula makes that inevitable.
+  </aside>
+</section>
+    </div>
+  </div>
+</body>
+</html>

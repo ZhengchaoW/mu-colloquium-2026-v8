@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MU Colloquium · Slide 41 · Removing danger zone could mitigate memorization</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="shared/deck.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script defer src="../vendor/katex/katex.min.js"></script>
+  <script defer src="../vendor/katex/contrib/auto-render.min.js"></script>
+  <script defer src="shared/deck.js?v=20260421-deck-overview"></script>
+  <style>
+    .late-figure--gap img {
+      max-height: min(37vh, 21.5rem);
+    }
+
+    .danger-wrap {
+      margin-top: 0.16rem;
+    }
+    .danger-frame {
+      position: relative;
+      width: min(100%, 27rem);
+      margin: 0 auto;
+    }
+    .danger-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: min(22vh, 11rem);
+      object-fit: contain;
+    }
+    .danger-band {
+      position: absolute;
+      top: 8%;
+      bottom: 11%;
+      left: 48.4%;
+      width: 10.8%;
+      background: linear-gradient(180deg, rgba(239, 197, 101, 0.16), rgba(227, 141, 44, 0.28));
+      border-left: 2px dashed rgba(185, 117, 31, 0.88);
+      border-right: 2px dashed rgba(185, 117, 31, 0.88);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+    }
+    .danger-band-label {
+      position: absolute;
+      top: 14%;
+      left: 53.8%;
+      transform: translateX(-50%);
+      padding: 0.2em 0.54em;
+      border-radius: 999px;
+      background: rgba(25, 42, 60, 0.9);
+      color: #ffffff;
+      font-size: 0.44em;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    @media (max-width: 1280px), (max-aspect-ratio: 16/10) {
+      .late-figure--gap img {
+        max-height: min(32vh, 18rem);
+      }
+
+      .danger-frame {
+        width: min(100%, 24rem);
+      }
+
+      .danger-frame img {
+        max-height: min(18vh, 9.2rem);
+      }
+    }
+  </style>
+</head>
+<body class="modular-slide" data-prev="37-intermediate-sigma-the-wild-middle.html" data-next="42-where-this-leaves-us.html" data-home="index.html">
+  <header class="modular-nav">
+    <div class="modular-nav__group">
+      <a class="" href="37-intermediate-sigma-the-wild-middle.html">Prev</a>
+      <a class="" href="index.html">Deck</a>
+      <div class="modular-nav__meta">Slide 41/46</div>
+      <a class="" href="42-where-this-leaves-us.html">Next</a>
+    </div>
+  </header>
+<div class="reveal standalone-reveal">
+    <div class="slides">
+<section>
+<div class="late-shell">
+  <a class="late-backlink" href="37-intermediate-sigma-the-wild-middle.html">Back to intermediate stage</a>
+  <h2 data-kicker="Empirical observation · Figure 4 + danger-zone intuition">Removing danger zone could mitigate memorization</h2>
+  <p class="late-lead">
+    On the 2k CIFAR-10 car subset, 2k-Gap simply skips the medium-noise band
+    <span class="math inline">\(\sigma \in [1, 5]\)</span>. If that band is really where memorization is learned,
+    memorization should fall without wrecking FID.
+  </p>
+  <div class="late-grid">
+    <div class="late-panel late-panel--warm">
+      <div class="late-panel__kicker">Figure 4 · Training outcome</div>
+      <div class="late-chip-row">
+        <span class="late-chip">2k CIFAR-10 cars</span>
+        <span class="late-chip">skip \(\sigma \in [1, 5]\)</span>
+        <span class="late-chip">track FID + memorization</span>
+      </div>
+      <figure class="late-figure late-figure--gap">
+        <img src="../figures/figure4_gap_training_publication_hires.png" alt="Gap-training experiment showing FID and memorization trajectories for 2k-Gap, 2k-Baseline, and 2k-Dummy across training iterations.">
+      </figure>
+    </div>
+    <div class="late-stack">
+      <div class="late-panel late-panel--sage">
+        <div class="late-panel__kicker">Experiment in one glance</div>
+        <p>
+          This asks whether the danger zone is causal, not just correlated with memorization.
+        </p>
+        <div class="late-kv">
+          <div class="late-kv__row">
+            <div class="late-kv__label">Setup</div>
+            <span>EDM on 2k CIFAR-10 cars, trained for 40k iterations and read at 8 checkpoints.</span>
+          </div>
+          <div class="late-kv__row">
+            <div class="late-kv__label">Compare</div>
+            <span>2k-Baseline, 2k-Dummy, and our 2k-Gap schedule.</span>
+          </div>
+          <div class="late-kv__row">
+            <div class="late-kv__label">Idea</div>
+            <span>Skip the middle band and see whether memorization drops while FID stays good.</span>
+          </div>
+        </div>
+      </div>
+      <div class="late-panel late-panel--paper">
+        <div class="late-panel__kicker">Figure 8 intuition · danger zone</div>
+        <div class="danger-wrap">
+          <div class="danger-frame">
+            <img src="../figures/danger_zone_combined.png" alt="Coverage and max-weight curves with gap configurations overlaid across the medium-noise regime.">
+            <div class="danger-band" aria-hidden="true"></div>
+            <div class="danger-band-label" aria-hidden="true">danger zone</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+    </div>
+  </div>
+</body>
+</html>

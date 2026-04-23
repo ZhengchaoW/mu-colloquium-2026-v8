@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MU Colloquium · Slide 42 · Generalization and memorization both appear here</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="shared/deck.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script defer src="../vendor/katex/katex.min.js"></script>
+  <script defer src="../vendor/katex/contrib/auto-render.min.js"></script>
+  <script defer src="shared/deck.js?v=20260421-deck-overview"></script>
+  <style>
+    body.modular-slide .reveal.standalone-reveal {
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    body.modular-slide .reveal.standalone-reveal .slides {
+      position: static !important;
+      width: auto !important;
+      height: auto !important;
+      inset: auto !important;
+      transform: none !important;
+    }
+
+    body.modular-slide .reveal.standalone-reveal .slides > section {
+      position: static !important;
+      width: auto !important;
+      height: auto !important;
+      min-height: calc(100vh - 3.4rem);
+      padding-top: clamp(0.72em, 1.2vw, 1em);
+      padding-bottom: clamp(2.8rem, 5vh, 4rem);
+    }
+
+    .late-shell--wide {
+      max-width: 110rem;
+    }
+
+    .late-backlink {
+      margin-bottom: 0.42em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.34em;
+      position: relative;
+      z-index: 6;
+      pointer-events: auto;
+      cursor: pointer;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 140ms ease, border-color 140ms ease, transform 140ms ease;
+    }
+
+    .late-backlink:hover,
+    .late-backlink:focus-visible {
+      border-color: currentColor;
+      transform: translateX(-0.04rem);
+      outline: none;
+    }
+
+    .late-lead {
+      max-width: 52em;
+      margin-bottom: 0.2em;
+    }
+
+    .late-panel {
+      padding: 0.22rem 0.26rem;
+    }
+
+    .late-figure--hero {
+      margin: 0;
+    }
+
+    .late-figure--hero img {
+      width: 100%;
+      max-width: 100%;
+      max-height: calc(100vh - 16.2rem);
+      object-fit: contain;
+      object-position: center top;
+    }
+
+    .swap-board {
+      display: grid;
+      grid-template-columns: minmax(11.6rem, 0.32fr) minmax(0, 1fr);
+      gap: 0.44rem;
+      align-items: start;
+    }
+
+    .schedule-column {
+      padding: 0.12rem 0.08rem 0;
+    }
+
+    .schedule-head {
+      display: grid;
+      grid-template-columns: 30% 44% 26%;
+      margin-left: 3.5rem;
+      margin-bottom: 0.18rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.43rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #65758b;
+    }
+
+    .schedule-head span {
+      text-align: center;
+    }
+
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 3.26rem minmax(0, 1fr);
+      gap: 0.2rem;
+      align-items: center;
+      min-height: 1.54rem;
+      margin-bottom: 0.11rem;
+    }
+
+    .schedule-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.43rem;
+      line-height: 1.08;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #48596e;
+      text-align: right;
+    }
+
+    .sigma-line {
+      display: grid;
+      grid-template-columns: 30% 44% 26%;
+      min-height: 1.02rem;
+      overflow: hidden;
+      border: 1px solid rgba(36, 52, 72, 0.13);
+      border-radius: 999px;
+      background: #ffffff;
+      box-shadow: 0 5px 12px rgba(36, 52, 72, 0.05);
+    }
+
+    .sigma-part {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.48rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: #1f3246;
+      border-right: 1px solid rgba(36, 52, 72, 0.14);
+    }
+
+    .sigma-part:last-child {
+      border-right: 0;
+    }
+
+    .sigma-part--large {
+      background: #dcecf8;
+    }
+
+    .sigma-part--medium {
+      background: #f7e6bd;
+    }
+
+    .sigma-part--small {
+      background: #deeedf;
+    }
+
+    .schedule-separator {
+      border-top: 2px dashed rgba(36, 52, 72, 0.45);
+      margin: 0.22rem 0 0.28rem 3.5rem;
+    }
+
+    .grid-crop {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .grid-crop img {
+      display: block;
+      width: 100%;
+      max-height: calc(100vh - 16.2rem);
+      object-fit: contain;
+      object-position: center top;
+    }
+
+    .figure-overlay-wrap {
+      position: relative;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .figure-overlay-wrap > img {
+      display: block;
+      width: 100%;
+      max-height: calc(100vh - 16.2rem);
+      object-fit: contain;
+      object-position: center top;
+    }
+
+    .schedule-overlay {
+      position: absolute;
+      left: 0.2%;
+      top: 8%;
+      width: 43%;
+      height: 84%;
+      display: grid;
+      grid-template-rows: auto repeat(5, 1fr) 0.32fr repeat(5, 1fr);
+      gap: 0.06rem;
+      padding: 0.08rem 0.34rem 0.08rem 0.08rem;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.98) 96%, rgba(255, 255, 255, 0.2) 100%);
+      box-sizing: border-box;
+    }
+
+    .schedule-overlay .schedule-head {
+      margin-left: 3.32rem;
+      margin-bottom: 0;
+    }
+
+    .schedule-overlay .schedule-row {
+      min-height: 0;
+      margin-bottom: 0;
+    }
+
+    .schedule-overlay .schedule-separator {
+      align-self: center;
+      width: calc(100% - 3.5rem);
+      margin: 0 0 0 3.5rem;
+    }
+
+    @media (max-width: 900px), (max-aspect-ratio: 4/3) {
+      body.modular-slide .reveal.standalone-reveal .slides > section {
+        padding-top: 0.62em;
+      }
+
+      .reveal h2 {
+        font-size: 1.34em;
+        line-height: 1.04;
+        margin-bottom: 0.34em;
+        padding-bottom: 0.18em;
+      }
+
+      .late-shell--wide {
+        max-width: none;
+      }
+
+      .late-backlink {
+        margin-bottom: 0.34em;
+      }
+
+      .late-lead {
+        font-size: 0.54em;
+        line-height: 1.28;
+        margin-bottom: 0.14em;
+      }
+
+      .late-panel {
+        padding: 0.14rem 0.16rem;
+      }
+
+      .late-figure--hero img {
+        max-height: calc(100vh - 18.8rem);
+      }
+
+      .swap-board {
+        grid-template-columns: minmax(9.6rem, 0.31fr) minmax(0, 1fr);
+        gap: 0.3rem;
+      }
+
+      .schedule-head {
+        margin-left: 3.04rem;
+        font-size: 0.36rem;
+      }
+
+      .schedule-row {
+        grid-template-columns: 2.82rem minmax(0, 1fr);
+        min-height: 1.3rem;
+        gap: 0.18rem;
+        margin-bottom: 0.08rem;
+      }
+
+      .schedule-label {
+        font-size: 0.34rem;
+      }
+
+      .sigma-line {
+        min-height: 0.88rem;
+      }
+
+      .sigma-part {
+        font-size: 0.39rem;
+      }
+
+      .schedule-separator {
+        margin: 0.16rem 0 0.2rem 3.04rem;
+      }
+
+      .grid-crop img {
+        max-height: calc(100vh - 18.8rem);
+      }
+
+      .figure-overlay-wrap > img {
+        max-height: calc(100vh - 18.8rem);
+      }
+
+      .schedule-overlay {
+        left: 0.25%;
+        top: 8.4%;
+        width: 43.5%;
+        height: 83.5%;
+        gap: 0.035rem;
+        padding-right: 0.22rem;
+      }
+
+      .schedule-overlay .schedule-head {
+        margin-left: 2.9rem;
+        font-size: 0.31rem;
+      }
+
+      .schedule-overlay .schedule-row {
+        grid-template-columns: 2.68rem minmax(0, 1fr);
+        gap: 0.14rem;
+      }
+
+      .schedule-overlay .schedule-label {
+        font-size: 0.29rem;
+      }
+
+      .schedule-overlay .sigma-line {
+        min-height: 0.72rem;
+      }
+
+      .schedule-overlay .sigma-part {
+        font-size: 0.34rem;
+      }
+
+      .schedule-overlay .schedule-separator {
+        width: calc(100% - 3.04rem);
+        margin-left: 3.04rem;
+      }
+    }
+  </style>
+</head>
+<body class="modular-slide" data-prev="37-intermediate-sigma-the-wild-middle.html" data-next="42-where-this-leaves-us.html" data-home="index.html">
+  <header class="modular-nav">
+    <div class="modular-nav__group">
+      <a class="" href="37-intermediate-sigma-the-wild-middle.html">Prev</a>
+      <a class="" href="index.html">Deck</a>
+      <div class="modular-nav__meta">Slide 42/46</div>
+      <a class="" href="42-where-this-leaves-us.html">Next</a>
+    </div>
+  </header>
+<div class="reveal standalone-reveal">
+    <div class="slides">
+<section>
+<div class="late-shell late-shell--wide">
+  <a aria-label="Back to intermediate-stage hub" class="late-backlink" href="37-intermediate-sigma-the-wild-middle.html">← Back to intermediate stage</a>
+  <h2 data-kicker="Empirical observation · Figure 10">Generalization and memorization both appear here</h2>
+  <p class="late-lead">
+    Swapping the medium region changes both whether the model memorizes and what the final samples visibly look like.
+  </p>
+  <div class="late-panel late-panel--paper">
+    <figure class="figure-overlay-wrap">
+      <img decoding="sync" loading="eager" src="figures/sample_grid_danger.png" alt="Swap-sample grid showing EDM-1K and EDM-50K hybrid schedules with red boxes marking memorized samples.">
+      <div class="schedule-column schedule-overlay" aria-label="Hybrid schedule rows with sigma-region number lines.">
+        <div class="schedule-head" aria-hidden="true">
+          <span>large</span>
+          <span>medium</span>
+          <span>small</span>
+        </div>
+
+        <div class="schedule-row">
+          <div class="schedule-label">all steps</div>
+          <div class="sigma-line" aria-label="All regions use EDM-1K."><span class="sigma-part sigma-part--large">1k</span><span class="sigma-part sigma-part--medium">1k</span><span class="sigma-part sigma-part--small">1k</span></div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-label">large 0-5</div>
+          <div class="sigma-line" aria-label="Large uses EDM-50K, medium and small use EDM-1K."><span class="sigma-part sigma-part--large">50k</span><span class="sigma-part sigma-part--medium">1k</span><span class="sigma-part sigma-part--small">1k</span></div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-label">medium 6-13</div>
+          <div class="sigma-line" aria-label="Medium uses EDM-50K, large and small use EDM-1K."><span class="sigma-part sigma-part--large">1k</span><span class="sigma-part sigma-part--medium">50k</span><span class="sigma-part sigma-part--small">1k</span></div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-label">danger 7-10</div>
+          <div class="sigma-line" aria-label="Danger-zone part of the medium region uses EDM-50K, large and small use EDM-1K."><span class="sigma-part sigma-part--large">1k</span><span class="sigma-part sigma-part--medium">50k</span><span class="sigma-part sigma-part--small">1k</span></div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-label">small 14-17</div>
+          <div class="sigma-line" aria-label="Small uses EDM-50K, large and medium use EDM-1K."><span class="sigma-part sigma-part--large">1k</span><span class="sigma-part sigma-part--medium">1k</span><span class="sigma-part sigma-part--small">50k</span></div>
+        </div>
+
+        <div class="schedule-separator" aria-hidden="true"></div>
+
+        <div class="schedule-row">
+          <div class="schedule-label">all steps</div>
+          <div class="sigma-line" aria-label="All regions use EDM-50K."><span class="sigma-part sigma-part--large">50k</span><span class="sigma-part sigma-part--medium">50k</span><span class="sigma-part sigma-part--small">50k</span></div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-label">large 0-5</div>
+          <div class="sigma-line" aria-label="Large uses EDM-1K, medium and small use EDM-50K."><span class="sigma-part sigma-part--large">1k</span><span class="sigma-part sigma-part--medium">50k</span><span class="sigma-part sigma-part--small">50k</span></div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-label">medium 6-13</div>
+          <div class="sigma-line" aria-label="Medium uses EDM-1K, large and small use EDM-50K."><span class="sigma-part sigma-part--large">50k</span><span class="sigma-part sigma-part--medium">1k</span><span class="sigma-part sigma-part--small">50k</span></div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-label">danger 7-10</div>
+          <div class="sigma-line" aria-label="Danger-zone part of the medium region uses EDM-1K, large and small use EDM-50K."><span class="sigma-part sigma-part--large">50k</span><span class="sigma-part sigma-part--medium">1k</span><span class="sigma-part sigma-part--small">50k</span></div>
+        </div>
+        <div class="schedule-row">
+          <div class="schedule-label">small 14-17</div>
+          <div class="sigma-line" aria-label="Small uses EDM-1K, large and medium use EDM-50K."><span class="sigma-part sigma-part--large">50k</span><span class="sigma-part sigma-part--medium">50k</span><span class="sigma-part sigma-part--small">1k</span></div>
+        </div>
+      </div>
+    </figure>
+  </div>
+</div>
+</section>
+    </div>
+  </div>
+</body>
+</html>

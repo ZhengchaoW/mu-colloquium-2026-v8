@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MU Colloquium · Slide 39 · Small σ: the second calm end</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="shared/deck.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script defer src="../vendor/katex/katex.min.js"></script>
+  <script defer src="../vendor/katex/contrib/auto-render.min.js"></script>
+  <script defer src="shared/deck.js?v=20260421-deck-overview"></script>
+  <style>
+    .stage-focus {
+      --accent: #2f7a4d;
+      --accent-soft: #edf5ea;
+      --accent-text: #275b3c;
+      --accent-line: rgba(47, 122, 77, 0.22);
+    }
+
+    .regime-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.45em;
+      margin: 0.4em 0 0.62em;
+    }
+
+    .regime-pill {
+      border-radius: 14px;
+      border: 1px solid rgba(36, 52, 72, 0.08);
+      background: #f7f7f5;
+      padding: 0.42em 0.54em 0.38em;
+      opacity: 0.54;
+    }
+
+    .regime-pill.is-active {
+      background: var(--accent-soft);
+      border-color: var(--accent-line);
+      box-shadow: 0 12px 26px rgba(39, 56, 80, 0.08);
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    .regime-pill__eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.31em;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7f8da2;
+      margin-bottom: 0.28em;
+    }
+
+    .regime-pill__title {
+      font-family: 'Newsreader', serif;
+      font-size: 0.7em;
+      color: #1f3246;
+      line-height: 1.05;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 0.75em;
+      align-items: stretch;
+    }
+
+    .focus-card {
+      border-radius: 18px;
+      border: 1px solid rgba(21, 32, 43, 0.10);
+      background: #fbfbfa;
+      padding: 0.7em 0.82em 0.62em;
+    }
+
+    .focus-card--accent {
+      background: linear-gradient(180deg, #fbfdfc 0%, #eef6f1 100%);
+      border-color: var(--accent-line);
+      box-shadow: 0 14px 32px rgba(39, 56, 80, 0.06);
+    }
+
+    .focus-card__eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.31em;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7f8da2;
+      margin-bottom: 0.42em;
+    }
+
+    .focus-card h3 {
+      margin: 0 0 0.26em 0;
+      font-family: 'Newsreader', serif;
+      font-size: 0.93em;
+      line-height: 1.04;
+      color: var(--accent-text);
+    }
+
+    .focus-card p {
+      margin: 0;
+      font-size: 0.74em;
+      line-height: 1.38;
+      color: #435265;
+    }
+
+    .focus-figure {
+      margin-top: 0.18em;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(21, 32, 43, 0.08);
+      background: #ffffff;
+      padding: 0.22em;
+    }
+
+    .focus-figure img {
+      width: 100%;
+      max-height: 8.7em;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .focus-points {
+      display: grid;
+      gap: 0.45em;
+      margin-top: 0.22em;
+    }
+
+    .focus-point {
+      border-radius: 12px;
+      background: #ffffff;
+      padding: 0.45em 0.52em;
+      border: 1px solid rgba(21, 32, 43, 0.08);
+      font-size: 0.7em;
+      line-height: 1.34;
+      color: #435265;
+    }
+
+    .takeaway-box {
+      margin-top: 0.58em;
+      border-radius: 10px;
+      padding: 0.62em 0.8em 0.54em;
+      background: #f6f1e3;
+      border-left: 4px solid #c28c2d;
+      font-size: 0.81em;
+      line-height: 1.36;
+      color: #435265;
+    }
+  </style>
+</head>
+<body class="modular-slide" data-prev="36-three-stages-on-the-training-side.html" data-next="37-intermediate-sigma-the-wild-middle.html" data-home="index.html">
+  <header class="modular-nav">
+    <div class="modular-nav__group">
+      <a class="" href="36-three-stages-on-the-training-side.html">Prev</a>
+      <a class="" href="index.html">Deck</a>
+      <div class="modular-nav__meta">Slide 39/46</div>
+      <a class="" href="37-intermediate-sigma-the-wild-middle.html">Next</a>
+    </div>
+  </header>
+  <div class="reveal standalone-reveal">
+    <div class="slides">
+<section class="stage-focus">
+  <h2 data-kicker="Three stages on the training side">Small $\sigma$: the second calm end</h2>
+
+  <p style="max-width:39em; margin:0.08em 0 0.24em 0; font-size:0.82em;">
+    We characterize the small noise regime by high posterior weight and low coverage.
+  </p>
+
+  <div class="regime-strip">
+    <div class="regime-pill">
+      <div class="regime-pill__eyebrow">Already seen</div>
+      <div class="regime-pill__title">Large $\sigma$<br>first calm end</div>
+    </div>
+    <div class="regime-pill is-active">
+      <div class="regime-pill__eyebrow">Active stage</div>
+      <div class="regime-pill__title">Small $\sigma$<br>second calm end</div>
+    </div>
+    <div class="regime-pill">
+      <div class="regime-pill__eyebrow">Still ahead</div>
+      <div class="regime-pill__title">Intermediate $\sigma$<br>the wild middle</div>
+    </div>
+  </div>
+
+  <div class="focus-grid">
+    <article class="focus-card">
+      <div class="focus-card__eyebrow">Part I</div>
+      <h3>Voronoi map</h3>
+      <div class="focus-figure">
+        <img src="../figures/voronoi_left_panel.png"
+             alt="Voronoi basin diagram showing the nearest-neighbor partition induced in the terminal limit">
+      </div>
+    </article>
+
+    <article class="focus-card focus-card--accent">
+      <div class="focus-card__eyebrow">Part II</div>
+      <h3>Theorem 4.9 (informal)</h3>
+      <div class="focus-points">
+        <div class="focus-point fragment fade-up">Let \(S_i := \mathrm{Shell}_\sigma(x_i)\) be the Gaussian shell around training point \(x_i\).</div>
+        <div class="focus-point fragment fade-up">If \(S_i \cap S_j = \emptyset\) for \(i \neq j\), then the shell-only denoising objective has infinitely many global minimizers: each sends \(S_i \to x_i\), and is arbitrary off \(\bigcup_i S_i\).</div>
+      </div>
+    </article>
+  </div>
+
+  <aside class="notes">
+    The transition sentence is important: the empirical optimum may be scary here, but the training support is too thin for this stage alone to be the formation mechanism.
+  </aside>
+</section>
+    </div>
+  </div>
+</body>
+</html>

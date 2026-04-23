@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MU Colloquium · Slide 24 · Intermediate stage: local clusters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="shared/deck.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script defer src="../vendor/katex/katex.min.js"></script>
+  <script defer src="../vendor/katex/contrib/auto-render.min.js"></script>
+  <script defer src="shared/deck.js?v=20260421-deck-overview"></script>
+  <style>
+    /* Unified 11b-style cards */
+    .bluebox, .greenbox, .goldbox, .redbox {
+      border-radius: 8px;
+      padding: 0.65em 0.85em 0.55em;
+      margin: 0.4em 0;
+      border: none;
+      border-left: 3px solid #2f5d9c;
+      box-shadow: none;
+    }
+    .bluebox  { background: #eaf2f8; border-left-color: #2f5d9c; }
+    .greenbox { background: #edf5ea; border-left-color: #2f7a4d; }
+    .goldbox  { background: #f6f1e3; border-left-color: #c28c2d; }
+    .redbox   { background: #f7ebea; border-left-color: #a43d2d; }
+    .cluster-layout {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 1.05em;
+      align-items: start;
+      margin-top: 0.2em;
+    }
+    .cluster-figure {
+      margin: 0;
+      background: #fbfcfe;
+      border: 1px solid rgba(47, 93, 156, 0.12);
+      border-radius: 10px;
+      padding: 0.28em;
+    }
+    .cluster-figure img {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+    }
+    .cluster-figure figcaption {
+      text-align: center;
+      font-size: 0.72em;
+      color: #4a4a4a;
+      line-height: 1.3;
+      margin-top: 0.22em;
+    }
+    .cluster-layout .greenbox {
+      margin-top: 0.02em;
+      font-size: 0.84em;
+    }
+  </style>
+</head>
+<body class="modular-slide" data-prev="21-a-clean-contraction-fact.html" data-next="23-the-decoder-exists.html" data-home="index.html">
+  <header class="modular-nav">
+    <div class="modular-nav__group">
+      <a class="" href="21-a-clean-contraction-fact.html">Prev</a>
+      <a class="" href="index.html">Deck</a>
+      <div class="modular-nav__meta">Slide 24/46</div>
+      <a class="" href="23-the-decoder-exists.html">Next</a>
+    </div>
+  </header>
+  <div class="reveal standalone-reveal">
+    <div class="slides">
+<section>
+  <h2 data-kicker="Intermediate stage">Intermediate stage: local clusters</h2>
+
+  <div class="cluster-layout">
+    <figure class="cluster-figure">
+      <img src="../figures/slide22_separate_cluster_geometry.png"
+           alt="Three-cluster toy geometry reused from the previous slide to show one separated cluster S.">
+      <figcaption>
+        Think of \(S\) as one visibly separated cluster in the same three-cluster geometry from the previous slide.
+      </figcaption>
+    </figure>
+
+    <div class="greenbox">
+      <span class="title">Cluster absorption (Prop. 6.9, informal)</span>
+      Suppose one cluster \(S\subset \mathrm{supp}(p)\) has diameter \(D\), and the rest of the data stays at distance at least \(2D\) from \(\mathrm{conv}(S)\).
+      For every \(\epsilon>0\) there is an explicit \(\sigma_0(S,\epsilon) > 0\) such that if \(\sigma_1 < \sigma_0\) and \(x_{\sigma_1}\in \overline{B_{D/2-\epsilon}(S)}\), then the trajectory <strong>never leaves</strong> \(\overline{B_{D/2-\epsilon}(S)}\) and converges into \(\mathrm{conv}(S)\) as \(\sigma\to 0\).
+    </div>
+  </div>
+
+  <aside class="notes">
+    Use the previous-slide cluster geometry visually so the audience can literally see what the separated cluster S is.
+    Emphasize that the absorbing set is a tube of radius just under D/2, so the cluster really holds the trajectory once the noise is small enough.
+  </aside>
+</section>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MU Colloquium · Slide 20 · Attracting & absorbing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="shared/deck.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script defer src="../vendor/katex/katex.min.js"></script>
+  <script defer src="../vendor/katex/contrib/auto-render.min.js"></script>
+  <script defer src="shared/deck.js?v=20260421-deck-overview"></script>
+  <style>
+    .bluebox,
+    .greenbox {
+      border-radius: 10px;
+      padding: 0.5em 0.72em 0.34em;
+      margin: 0;
+      border: none;
+      border-left: 3px solid #2f5d9c;
+      box-shadow: none;
+    }
+    .bluebox {
+      background: #eaf2f8;
+      border-left-color: #2f5d9c;
+    }
+    .greenbox {
+      background: #edf5ea;
+      border-left-color: #2f7a4d;
+    }
+    .aa-figures {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      align-items: start;
+      margin: 0.3em 0 0.12em 0;
+    }
+    .aa-panel {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .aa-panel svg {
+      width: 100%;
+      max-height: min(21vh, 230px);
+      display: block;
+      margin: 0 auto;
+    }
+    .aa-box-label {
+      display: block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.4em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.32em;
+      color: #314254;
+    }
+    .aa-attracting-figure {
+      position: relative;
+      width: min(100%, 24rem);
+      aspect-ratio: 320 / 170;
+      margin: 0 auto 0.04em;
+    }
+    .aa-attracting-figure svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      max-height: none;
+    }
+    .aa-math-label {
+      position: absolute;
+      z-index: 2;
+      padding: 0.1em 0.34em;
+      border-radius: 999px;
+      background: rgba(248, 250, 252, 0.94);
+      box-shadow: 0 5px 14px rgba(29, 42, 55, 0.08);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .aa-math-label .katex {
+      font-size: 0.78em;
+    }
+    .aa-math-label--x {
+      left: 14%;
+      top: 8%;
+      color: #355f87;
+    }
+    .aa-math-label--proj {
+      left: 39%;
+      top: 20%;
+      color: #6f7c8c;
+    }
+    .aa-math-label--m {
+      left: 60%;
+      top: 75%;
+      color: #355f87;
+    }
+    .aa-math-label--omega {
+      left: 69%;
+      top: 51%;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+      color: #8a6b34;
+    }
+    .aa-math-label--omega .katex {
+      font-size: 0.9em;
+    }
+    .aa-panel-title {
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.16em;
+      font-size: 0.78em;
+      line-height: 1.2;
+    }
+    .aa-caption {
+      font-size: 0.64em;
+      color: #4a4a4a;
+      margin-top: 0.04em;
+      line-height: 1.18;
+    }
+    .aa-footer {
+      text-align: center;
+      font-size: 0.88em;
+      margin-top: 1.18em;
+      padding-top: 0.4em;
+    }
+    /* Absorbing panel: boundary arrows pulse inward */
+    @keyframes aa-inward-1 {
+      0%, 20%  { opacity: 0; transform: translate(0, 0); }
+      35%, 70% { opacity: 1; transform: translate(var(--dx), var(--dy)); }
+      85%, 100%{ opacity: 0; transform: translate(var(--dx), var(--dy)); }
+    }
+    .aa-inward {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: aa-inward-1 2.6s ease-in-out infinite;
+    }
+    .aa-inward.delay-1 { animation-delay: 0.2s; }
+    .aa-inward.delay-2 { animation-delay: 0.4s; }
+    .aa-inward.delay-3 { animation-delay: 0.6s; }
+    .aa-inward.delay-4 { animation-delay: 0.8s; }
+    .aa-inward.delay-5 { animation-delay: 1.0s; }
+    .aa-inward.delay-6 { animation-delay: 1.2s; }
+    @keyframes aa-bounce {
+      0%, 100% { transform: translate(0, 0); }
+      25%  { transform: translate(-6px, 4px); }
+      50%  { transform: translate(5px, -5px); }
+      75%  { transform: translate(-3px, -4px); }
+    }
+    .aa-caged { animation: aa-bounce 2.6s ease-in-out infinite; }
+  </style>
+</head>
+<body class="modular-slide" data-prev="17-now-the-denoiser-has-a-clear-meaning.html" data-next="19-three-stages-of-dynamics.html" data-home="index.html">
+  <header class="modular-nav">
+    <div class="modular-nav__group">
+      <a class="" href="17-now-the-denoiser-has-a-clear-meaning.html">Prev</a>
+      <a class="" href="index.html">Deck</a>
+      <div class="modular-nav__meta">Slide 20/46</div>
+      <a class="" href="19-three-stages-of-dynamics.html">Next</a>
+    </div>
+  </header>
+  <div class="reveal standalone-reveal">
+    <div class="slides">
+<section>
+  <h2 data-kicker="The denoiser geometry we need">Attracting &amp; absorbing</h2>
+
+  <p style="max-width:38em; margin:0.15em 0 0.28em 0; font-size:0.95em;">
+    Sampling is $\dfrac{dx_\sigma}{d\sigma}=-\dfrac{1}{\sigma}\bigl(m_\sigma(x_\sigma)-x_\sigma\bigr)$.
+    Pick a set $\Omega$. How is the denoiser vector $m_\sigma(x)-x$ positioned relative to $\Omega$?
+  </p>
+
+  <div class="aa-figures">
+    <!-- ATTRACTING panel -->
+    <figure class="aa-panel bluebox">
+      <span class="aa-box-label">Attracting</span>
+      <div class="aa-panel-title">$m_\sigma(x)-x$ points toward $\Omega$</div>
+      <div class="aa-attracting-figure">
+        <svg viewBox="0 0 320 170" role="img" aria-label="An outside point x, its projection on Omega, and the point m sigma of x show the attracting geometry.">
+          <defs>
+            <marker id="aa-arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#2f5d9c"/>
+            </marker>
+            <marker id="aa-arr-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#9a9a9a"/>
+            </marker>
+          </defs>
+          <ellipse cx="221" cy="98" rx="60" ry="34" fill="#f6eac8" stroke="#c28c2d" stroke-width="2"/>
+
+          <circle cx="56" cy="58" r="6" fill="#355f87"/>
+          <circle cx="162" cy="79" r="4.6" fill="#f8fafc" stroke="#8c97a5" stroke-width="1.6"/>
+          <circle cx="209" cy="126" r="5.3" fill="#4c78aa" stroke="#f8fafc" stroke-width="1.5"/>
+
+          <line x1="56" y1="58" x2="162" y2="79"
+                stroke="#8c97a5" stroke-width="2.2"
+                stroke-dasharray="6 5"
+                marker-end="url(#aa-arr-gray)"/>
+
+          <line x1="56" y1="58" x2="209" y2="126"
+                stroke="#2f5d9c" stroke-width="2.9"
+                marker-end="url(#aa-arr-blue)"/>
+        </svg>
+        <span class="aa-math-label aa-math-label--x">\(x\)</span>
+        <span class="aa-math-label aa-math-label--proj">\(\operatorname{proj}_{\Omega}(x)\)</span>
+        <span class="aa-math-label aa-math-label--m">\(m_\sigma(x)\)</span>
+        <span class="aa-math-label aa-math-label--omega">\(\Omega\)</span>
+      </div>
+      <figcaption class="aa-caption">
+        From the same start point \(x\), \(m_\sigma(x)-x\) makes an acute angle with \(\mathrm{proj}_\Omega(x)-x\), so the ODE moves toward \(\Omega\).
+      </figcaption>
+    </figure>
+
+    <!-- ABSORBING panel -->
+    <figure class="aa-panel greenbox">
+      <span class="aa-box-label">Absorbing</span>
+      <div class="aa-panel-title">Tube boundary points inward</div>
+      <svg viewBox="0 0 320 170" role="img" aria-label="A particle inside a tube around Omega cannot escape." style="max-height:min(21vh, 220px);">
+        <defs>
+          <marker id="aa-arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#2f7a4d"/>
+          </marker>
+        </defs>
+        <!-- Outer tube -->
+        <ellipse cx="160" cy="90" rx="112" ry="60" fill="#eef6ea" stroke="#7bb08a" stroke-width="2" stroke-dasharray="5 5"/>
+        <!-- Inner set Omega -->
+        <ellipse cx="160" cy="90" rx="56" ry="28" fill="#f6eac8" stroke="#c28c2d" stroke-width="2"/>
+        <text x="160" y="94" text-anchor="middle" font-size="16" fill="#8a6b34" font-style="italic">Ω</text>
+
+        <!-- Inward-pointing boundary arrows: from tube boundary toward inner set -->
+        <!-- top -->
+        <g class="aa-inward delay-1" style="--dx:0; --dy:16;">
+          <line x1="160" y1="34"  x2="160" y2="62"  stroke="#2f7a4d" stroke-width="2.4" marker-end="url(#aa-arr-green)"/>
+        </g>
+        <!-- bottom -->
+        <g class="aa-inward delay-4" style="--dx:0; --dy:-16;">
+          <line x1="160" y1="146" x2="160" y2="118" stroke="#2f7a4d" stroke-width="2.4" marker-end="url(#aa-arr-green)"/>
+        </g>
+        <!-- left -->
+        <g class="aa-inward delay-2" style="--dx:22; --dy:0;">
+          <line x1="52"  y1="90"  x2="98"  y2="90"  stroke="#2f7a4d" stroke-width="2.4" marker-end="url(#aa-arr-green)"/>
+        </g>
+        <!-- right -->
+        <g class="aa-inward delay-5" style="--dx:-22; --dy:0;">
+          <line x1="268" y1="90"  x2="222" y2="90"  stroke="#2f7a4d" stroke-width="2.4" marker-end="url(#aa-arr-green)"/>
+        </g>
+        <!-- top-left -->
+        <g class="aa-inward delay-3" style="--dx:14; --dy:10;">
+          <line x1="78"  y1="46"  x2="120" y2="74"  stroke="#2f7a4d" stroke-width="2.4" marker-end="url(#aa-arr-green)"/>
+        </g>
+        <!-- bottom-right -->
+        <g class="aa-inward delay-6" style="--dx:-14; --dy:-10;">
+          <line x1="242" y1="134" x2="200" y2="106" stroke="#2f7a4d" stroke-width="2.4" marker-end="url(#aa-arr-green)"/>
+        </g>
+
+        <!-- Caged particle inside the tube, jittering but never leaving -->
+        <g class="aa-caged">
+          <circle cx="130" cy="108" r="5" fill="#355f87"/>
+        </g>
+      </svg>
+      <figcaption class="aa-caption">
+        Once inside a tube around $\Omega$, inward boundary vectors keep the trajectory trapped.
+      </figcaption>
+    </figure>
+  </div>
+
+  <p class="aa-footer">
+    Every later theorem is a refined version of these same two ideas, for different choices of $\Omega$: the <strong>mean</strong>, a <strong>cluster</strong>, the <strong>support itself</strong>.
+  </p>
+
+  <aside class="notes">
+    Keep the cartoons schematic. Attracting: two clearly separated vectors from the same start point, with clean LaTeX labels for \(x\), \(\operatorname{proj}_\Omega(x)\), and \(m_\sigma(x)\). Absorbing: a tube with inward-pointing boundary vectors, particle trapped.
+  </aside>
+</section>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,278 @@
+[
+  {
+    "number": 1,
+    "title": "Data Geometry, Flow Dynamics, and Memorization in Diffusion Models",
+    "filename": "01-data-geometry-flow-dynamics-and-memorization-in-diffusion-models.html",
+    "kind": "title"
+  },
+  {
+    "number": 2,
+    "title": "What is a diffusion model?",
+    "filename": "02-what-is-a-diffusion-model.html",
+    "kind": "opening"
+  },
+  {
+    "number": 3,
+    "title": "What does \u201cpredicting noise\u201d even mean?",
+    "filename": "03-what-does-predicting-noise-even-mean.html",
+    "kind": "bridge"
+  },
+  {
+    "number": 4,
+    "title": "Start by interpolating two distributions",
+    "filename": "04-start-by-interpolating-two-distributions.html",
+    "kind": "content"
+  },
+  {
+    "number": 5,
+    "title": "Sampling via ODE",
+    "filename": "05-how-does-the-path-become-a-sampler.html",
+    "kind": "animated"
+  },
+  {
+    "number": 6,
+    "title": "Choose a concrete Gaussian path for image generation",
+    "filename": "06-choose-a-concrete-gaussian-path.html",
+    "kind": "content"
+  },
+  {
+    "number": 7,
+    "title": "What is the velocity field for this path?",
+    "filename": "07-what-is-the-vector-field-for-this-path.html",
+    "kind": "animated"
+  },
+  {
+    "number": 8,
+    "title": "Average over compatible endpoints",
+    "filename": "08-average-over-compatible-endpoints.html",
+    "kind": "animated"
+  },
+  {
+    "number": 9,
+    "title": "In practice we learn the field",
+    "filename": "09-in-practice-we-learn-the-field.html",
+    "kind": "content"
+  },
+  {
+    "number": 10,
+    "title": "Why people got excited",
+    "filename": "10-flow-matching-paper-showcase.html",
+    "kind": "content"
+  },
+  {
+    "number": 11,
+    "title": "Some quetions",
+    "filename": "11-why-is-the-simple-framework-enough.html",
+    "kind": "bridge"
+  },
+  {
+    "number": 12,
+    "title": "Elucidating Flow Matching ODE Dynamics via Data Geometry and Denoisers",
+    "filename": "12-the-theory.html",
+    "kind": "divider"
+  },
+  {
+    "number": 13,
+    "title": "The challenge is real",
+    "filename": "13-the-regularity-challenge.html",
+    "kind": "content"
+  },
+  {
+    "number": 14,
+    "title": "What was known before us?",
+    "filename": "13b-status-before-our-result.html",
+    "kind": "content"
+  },
+  {
+    "number": 15,
+    "title": "Why do we want from [0,1) to [0,1]?",
+    "filename": "13c-why-do-we-want-from-0-1-to-0-1.html",
+    "kind": "content"
+  },
+  {
+    "number": 16,
+    "title": "The major player is the denoiser",
+    "filename": "14-reminder-notation-for-part-i.html",
+    "kind": "content"
+  },
+  {
+    "number": 17,
+    "title": "Switch from t to \u03c3",
+    "filename": "15-sigma-is-the-right-coordinate.html",
+    "kind": "content"
+  },
+  {
+    "number": 18,
+    "title": "The density path is Gaussian smoothing",
+    "filename": "16-the-density-path-is-gaussian-smoothing.html",
+    "kind": "content"
+  },
+  {
+    "number": 19,
+    "title": "Now the denoiser has a clear meaning",
+    "filename": "17-now-the-denoiser-has-a-clear-meaning.html",
+    "kind": "content"
+  },
+  {
+    "number": 20,
+    "title": "Attracting & absorbing",
+    "filename": "18-attracting-absorbing.html",
+    "kind": "animated"
+  },
+  {
+    "number": 21,
+    "title": "Three stages of dynamics",
+    "filename": "19-three-stages-of-dynamics.html",
+    "kind": "content"
+  },
+  {
+    "number": 22,
+    "title": "Three stages in practice \u2014 EDM on CIFAR-10",
+    "filename": "20-three-stages-in-practice-edm-on-cifar-10.html",
+    "kind": "content"
+  },
+  {
+    "number": 23,
+    "title": "Initial stage: toward the data mean",
+    "filename": "21-a-clean-contraction-fact.html",
+    "kind": "content"
+  },
+  {
+    "number": 24,
+    "title": "Intermediate stage: local clusters",
+    "filename": "22-cluster-absorption.html",
+    "kind": "content"
+  },
+  {
+    "number": 25,
+    "title": "Terminal stage: convergence of ODE trajectories at t=1",
+    "filename": "23-the-decoder-exists.html",
+    "kind": "content"
+  },
+  {
+    "number": 26,
+    "title": "The rate depends on the data geometry",
+    "filename": "24-manifold-vs-discrete-rates.html",
+    "kind": "content"
+  },
+  {
+    "number": 27,
+    "title": "Zoom in: the discrete case",
+    "filename": "25-zoom-in-discrete-case.html",
+    "kind": "content"
+  },
+  {
+    "number": 28,
+    "title": "Why does this happen?",
+    "filename": "26-why-does-this-happen.html",
+    "kind": "content"
+  },
+  {
+    "number": 29,
+    "title": "You shouldn't fit the denoiser perfectly",
+    "filename": "27-the-memorization-corollary.html",
+    "kind": "content"
+  },
+  {
+    "number": 30,
+    "title": "Two calm ends, one wild middle",
+    "filename": "28-two-calm-ends-one-wild-middle.html",
+    "kind": "divider"
+  },
+  {
+    "number": 31,
+    "title": "EDM-1K is already a memorizing model",
+    "filename": "29-the-memorizing-network-that-does-not-copy-at-sigma-0-5.html",
+    "kind": "content"
+  },
+  {
+    "number": 32,
+    "title": "small noise is not nearest neighbor map!!",
+    "filename": "30-small-is-not-the-memorizing-regime.html",
+    "kind": "content"
+  },
+  {
+    "number": 33,
+    "title": "Quantifying memorization per step",
+    "filename": "31-one-step-denoising-at-small-0-14.html",
+    "kind": "content"
+  },
+  {
+    "number": 34,
+    "title": "What should have happened?",
+    "filename": "32-where-does-edm-1k-track-the-empirical-optimum.html",
+    "kind": "content"
+  },
+  {
+    "number": 35,
+    "title": "What training sees of X\u03c3",
+    "filename": "33-memorization-needs-two-ingredients.html",
+    "kind": "content"
+  },
+  {
+    "number": 36,
+    "title": "What training sees of X\u03c3",
+    "filename": "34-shells-separate-at-small-sigma.html",
+    "kind": "content"
+  },
+  {
+    "number": 37,
+    "title": "memorization: interaction of two players",
+    "filename": "35-the-danger-zone-visualized.html",
+    "kind": "content"
+  },
+  {
+    "number": 38,
+    "title": "Large \u03c3: the first calm end",
+    "filename": "36-three-stages-on-the-training-side.html",
+    "kind": "content"
+  },
+  {
+    "number": 39,
+    "title": "Small \u03c3: the second calm end",
+    "filename": "38-small-sigma-the-second-calm-end.html",
+    "kind": "content"
+  },
+  {
+    "number": 40,
+    "title": "Intermediate \u03c3: the wild middle",
+    "filename": "37-intermediate-sigma-the-wild-middle.html",
+    "kind": "content"
+  },
+  {
+    "number": 41,
+    "title": "Removing danger zone could mitigate memorization",
+    "filename": "40-regularize-the-danger-zone-not-the-endpoint.html",
+    "kind": "content"
+  },
+  {
+    "number": 42,
+    "title": "Generalization and memorization both appear here",
+    "filename": "41-qualitative-check.html",
+    "kind": "content"
+  },
+  {
+    "number": 43,
+    "title": "Where this leaves us",
+    "filename": "42-where-this-leaves-us.html",
+    "kind": "divider"
+  },
+  {
+    "number": 44,
+    "title": "Outlook axes",
+    "filename": "43-three-axes-we-ve-barely-touched.html",
+    "kind": "content"
+  },
+  {
+    "number": 45,
+    "title": "References",
+    "filename": "44-references.html",
+    "kind": "references"
+  },
+  {
+    "number": 46,
+    "title": "Thank you.",
+    "filename": "45-thank-you.html",
+    "kind": "closing"
+  }
+]

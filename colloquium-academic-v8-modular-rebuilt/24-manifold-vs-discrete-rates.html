@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MU Colloquium · Slide 26 · The rate depends on the data geometry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="shared/deck.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script defer src="../vendor/katex/katex.min.js"></script>
+  <script defer src="../vendor/katex/contrib/auto-render.min.js"></script>
+  <script defer src="shared/deck.js?v=20260421-deck-overview"></script>
+  <style>
+    /* Unified 11b-style cards */
+    .bluebox, .greenbox, .goldbox, .redbox {
+      border-radius: 8px;
+      padding: 0.65em 0.85em 0.55em;
+      margin: 0.4em 0;
+      border: none;
+      border-left: 3px solid #2f5d9c;
+      box-shadow: none;
+    }
+    .bluebox  { background: #eaf2f8; border-left-color: #2f5d9c; }
+    .greenbox { background: #edf5ea; border-left-color: #2f7a4d; }
+    .goldbox  { background: #f6f1e3; border-left-color: #c28c2d; }
+    .redbox   { background: #f7ebea; border-left-color: #a43d2d; }
+  </style>
+</head>
+<body class="modular-slide" data-prev="23-the-decoder-exists.html" data-next="25-zoom-in-discrete-case.html" data-home="index.html">
+  <header class="modular-nav">
+    <div class="modular-nav__group">
+      <a class="" href="23-the-decoder-exists.html">Prev</a>
+      <a class="" href="index.html">Deck</a>
+      <div class="modular-nav__meta">Slide 26/46</div>
+      <a class="" href="25-zoom-in-discrete-case.html">Next</a>
+    </div>
+  </header>
+  <div class="reveal standalone-reveal">
+    <div class="slides">
+<section>
+  <h2 data-kicker="Theorem 5.4">The rate depends on the data geometry</h2>
+
+  <p style="max-width:34em; margin:0.2em 0 0.55em 0;">
+    Same FM ODE, different endpoint geometry. How fast does $\Psi_\sigma(z)$ approach $\Psi_1(z)$?
+  </p>
+
+  <div class="two-col" style="gap:1em;">
+    <div class="bluebox" style="font-size:0.82em;">
+      <span class="title">Manifold support</span>
+      $M\subset\R^d$: $m$-dimensional, positive reach, bounded second fundamental form; $p$ has a smooth nonvanishing density on $M$.
+      $$\|\Psi_1(z)-\Psi_\sigma(z)\|=O(\sqrt{\sigma})$$
+    </div>
+    <div class="goldbox" style="font-size:0.82em;">
+      <span class="title">Discrete support</span>
+      $p=\sum_{i=1}^N a_i\,\delta_{x_i}$.
+      $$\|\Psi_1(z)-\Psi_\sigma(z)\|=O(\sigma)$$
+    </div>
+  </div>
+
+  <aside class="notes">
+    The paper is not just proving existence. It already distinguishes different terminal
+    behaviors depending on the support geometry &mdash; the manifold case converges at rate
+    $\sqrt{\sigma}$, the discrete case at the faster rate $\sigma$.
+  </aside>
+</section>
+    </div>
+  </div>
+</body>
+</html>

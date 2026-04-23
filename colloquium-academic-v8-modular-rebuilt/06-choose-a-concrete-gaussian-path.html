@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MU Colloquium · Slide 6 · Choose a concrete Gaussian path for image generation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="shared/deck.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script defer src="../vendor/katex/katex.min.js"></script>
+  <script defer src="../vendor/katex/contrib/auto-render.min.js"></script>
+  <script defer src="shared/deck.js?v=20260421-deck-overview"></script>
+  <style>
+    /* Unified 11b-style cards */
+    .bluebox, .greenbox, .goldbox, .redbox {
+      border-radius: 8px;
+      padding: 0.65em 0.85em 0.55em;
+      margin: 0.4em 0;
+      border: none;
+      border-left: 3px solid #2f5d9c;
+      box-shadow: none;
+    }
+    .bluebox  { background: #eaf2f8; border-left-color: #2f5d9c; }
+    .greenbox { background: #edf5ea; border-left-color: #2f7a4d; }
+    .goldbox  { background: #f6f1e3; border-left-color: #c28c2d; }
+    .redbox   { background: #f7ebea; border-left-color: #a43d2d; }
+  </style>
+</head>
+<body class="modular-slide" data-prev="05-how-does-the-path-become-a-sampler.html" data-next="07-what-is-the-vector-field-for-this-path.html" data-home="index.html">
+  <header class="modular-nav">
+    <div class="modular-nav__group">
+      <a class="" href="05-how-does-the-path-become-a-sampler.html">Prev</a>
+      <a class="" href="index.html">Deck</a>
+      <div class="modular-nav__meta">Slide 6/46</div>
+      <a class="" href="07-what-is-the-vector-field-for-this-path.html">Next</a>
+    </div>
+  </header>
+<div class="reveal standalone-reveal">
+    <div class="slides">
+<section class="gaussian-path-slide">
+<h2 data-kicker="Gaussian Path">Choose a concrete Gaussian path for image generation</h2>
+<div class="gaussian-path-layout">
+<figure class="gaussian-path-figure">
+<div class="gaussian-path-canvas">
+<svg class="gaussian-path-links" viewBox="0 0 1000 520" role="img" aria-label="A Gaussian prior on the left, several noisy examples at an intermediate time in the middle, and several clean data examples on the right connected by a concrete interpolation path">
+<defs>
+<marker id="gaussian-path-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+<path d="M0,0 L10,5 L0,10 z" fill="#7ba6d5"></path>
+</marker>
+</defs>
+<path d="M 220 258 C 360 206, 430 194, 515 208 C 595 220, 660 238, 782 270" stroke="#7ba6d5" stroke-width="5" marker-end="url(#gaussian-path-arrow)"></path>
+<path d="M 220 304 C 366 334, 430 332, 515 302 C 596 274, 668 256, 782 246" stroke="#7baea0" stroke-width="4" opacity="0.72"></path>
+<line x1="470" y1="78" x2="470" y2="442" stroke="#e6edf4" stroke-width="2"></line>
+<line x1="540" y1="78" x2="540" y2="442" stroke="#e6edf4" stroke-width="2"></line>
+</svg>
+<div class="gaussian-blob prior-blob" style="left:6%;top:33%;width:24%;height:34%;">
+<div class="gaussian-label">$$p_0 = \mathcal{N}(0,I)$$</div>
+<img class="gaussian-chip" alt="Gaussian-noise example" src="../figures/gaussian-path/noise-1.png" style="top:16%;left:12%;width:24%;">
+<img class="gaussian-chip" alt="Gaussian-noise example" src="../figures/gaussian-path/noise-2.png" style="top:43%;left:56%;width:24%;">
+<img class="gaussian-chip" alt="Gaussian-noise example" src="../figures/gaussian-path/noise-3.png" style="top:67%;left:28%;width:24%;">
+</div>
+<div class="gaussian-blob mid-blob">
+<div class="gaussian-label">$$p_t$$</div>
+<img class="gaussian-chip" alt="Noisy example at t equals 0.3" src="../figures/gaussian-path/mid-t03-1.png" style="top:14%;left:12%;width:30%;">
+<img class="gaussian-chip" alt="Noisy example at t equals 0.3" src="../figures/gaussian-path/mid-t03-2.png" style="top:14%;left:58%;width:30%;">
+<img class="gaussian-chip" alt="Noisy example at t equals 0.3" src="../figures/gaussian-path/mid-t03-3.png" style="top:55%;left:12%;width:30%;">
+<img class="gaussian-chip" alt="Noisy example at t equals 0.3" src="../figures/gaussian-path/mid-t03-4.png" style="top:55%;left:58%;width:30%;">
+</div>
+<div class="gaussian-blob target-blob" style="right:6%;top:33%;width:24%;height:34%;">
+<div class="gaussian-label">$$p_1 = p$$</div>
+<img class="gaussian-chip" alt="Clean target-data example" src="../figures/gaussian-path/data-clean-1.png" style="top:14%;left:12%;width:24%;">
+<img class="gaussian-chip" alt="Clean target-data example" src="../figures/gaussian-path/data-clean-2.png" style="top:14%;left:60%;width:24%;">
+<img class="gaussian-chip" alt="Clean target-data example" src="../figures/gaussian-path/data-clean-3.png" style="top:58%;left:12%;width:24%;">
+<img class="gaussian-chip" alt="Clean target-data example" src="../figures/gaussian-path/data-clean-4.png" style="top:58%;left:60%;width:24%;">
+</div>
+</div>
+</figure>
+<div class="gaussian-formulas">
+<div class="bluebox">
+<span class="title">Endpoints</span>
+$$Z \sim \mathcal{N}(0,I), \qquad X \sim p$$
+</div>
+<div class="greenbox">
+<span class="title">Chosen Path</span>
+$$X_t = \alpha_t X + \beta_t Z, \qquad p_t = \operatorname{Law}(X_t)$$
+</div>
+<div class="goldbox">
+<span class="title">Endpoint Constraints</span>
+$$\alpha_0 = 0,\ \beta_0 = 1,\qquad \alpha_1 = 1,\ \beta_1 = 0$$
+$$\text{example: }\alpha_t = t,\qquad \beta_t = 1-t$$
+</div>
+</div>
+</div>
+</section>
+    </div>
+  </div>
+</body>
+</html>

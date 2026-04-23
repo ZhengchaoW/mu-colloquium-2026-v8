@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MU Colloquium · Slide 4 · Start by interpolating two distributions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="shared/deck.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script defer src="../vendor/katex/katex.min.js"></script>
+  <script defer src="../vendor/katex/contrib/auto-render.min.js"></script>
+  <script defer src="shared/deck.js?v=20260421-deck-overview"></script>
+  <style>
+    /* Unified 11b-style cards */
+    .bluebox, .greenbox, .goldbox, .redbox {
+      border-radius: 8px;
+      padding: 0.65em 0.85em 0.55em;
+      margin: 0.4em 0;
+      border: none;
+      border-left: 3px solid #2f5d9c;
+      box-shadow: none;
+    }
+    .bluebox  { background: #eaf2f8; border-left-color: #2f5d9c; }
+    .greenbox { background: #edf5ea; border-left-color: #2f7a4d; }
+    .goldbox  { background: #f6f1e3; border-left-color: #c28c2d; }
+    .redbox   { background: #f7ebea; border-left-color: #a43d2d; }
+  </style>
+</head>
+<body class="modular-slide" data-prev="03-what-does-predicting-noise-even-mean.html" data-next="05-how-does-the-path-become-a-sampler.html" data-home="index.html">
+  <header class="modular-nav">
+    <div class="modular-nav__group">
+      <a class="" href="03-what-does-predicting-noise-even-mean.html">Prev</a>
+      <a class="" href="index.html">Deck</a>
+      <div class="modular-nav__meta">Slide 4/46</div>
+      <a class="" href="05-how-does-the-path-become-a-sampler.html">Next</a>
+    </div>
+  </header>
+  <div class="reveal standalone-reveal">
+    <div class="slides">
+<section>
+<h2 data-kicker="Probability Path">Start by interpolating two distributions</h2>
+<div class="stack-flow">
+<figure class="pair-animation-figure">
+<div aria-label="Animated interpolation between independently sampled endpoint pairs" class="pair-animation">
+<svg role="img" viewbox="0 0 980 360">
+<rect fill="#ffffff" height="360" width="980" x="0" y="0"></rect>
+<ellipse class="dist-cloud" cx="190" cy="174" fill="#dceff9" rx="88" ry="126" stroke="#9fcae2"></ellipse>
+<ellipse class="dist-cloud" cx="788" cy="174" fill="#d5f1ea" rx="90" ry="126" stroke="#77b8a8"></ellipse>
+<text fill="#213754" font-size="31" text-anchor="middle" x="190" y="58">p<tspan baseline-shift="sub" font-size="21">0</tspan></text>
+<text fill="#213754" font-size="31" text-anchor="middle" x="788" y="58">p<tspan baseline-shift="sub" font-size="21">1</tspan></text>
+<ellipse class="pt-cloud" cx="190" cy="174" fill="#f3ead3" rx="88" ry="126" stroke="#d0b070">
+<animate attributename="opacity" begin="4.32s" dur="0.16s" fill="freeze" from="0" to="0.62"></animate>
+<animate attributename="cx" begin="4.45s" dur="1.65s" fill="freeze" from="190" to="788"></animate>
+<animate attributename="cx" begin="6.10s" dur="1.05s" fill="freeze" from="788" to="494"></animate>
+</ellipse>
+<text class="pt-label" fill="#213754" font-size="31" text-anchor="middle" x="494" y="58">p<tspan baseline-shift="sub" font-size="21">t</tspan>
+<animate attributename="opacity" begin="6.95s" dur="0.30s" fill="freeze" from="0" to="1"></animate>
+</text>
+<text fill="#213754" font-size="24" text-anchor="end" x="952" y="36">ℝ<tspan baseline-shift="super" font-size="16">d</tspan></text>
+<path class="pair-track" d="M 150 118 L 732 112" id="curve1" stroke="#9cb6d8" stroke-dasharray="900" stroke-dashoffset="900">
+<animate attributename="opacity" begin="0.58s" dur="0.01s" fill="freeze" from="0" to="0.46"></animate>
+<animate attributename="stroke-dashoffset" begin="0.58s" dur="0.62s" fill="freeze" from="900" to="0"></animate>
+</path>
+<path class="pair-track" d="M 142 148 L 744 140" id="curve2" stroke="#a8bddf" stroke-dasharray="900" stroke-dashoffset="900">
+<animate attributename="opacity" begin="1.28s" dur="0.01s" fill="freeze" from="0" to="0.46"></animate>
+<animate attributename="stroke-dashoffset" begin="1.28s" dur="0.62s" fill="freeze" from="900" to="0"></animate>
+</path>
+<path class="pair-track" d="M 154 184 L 754 178" id="curve3" stroke="#9cb6d8" stroke-dasharray="900" stroke-dashoffset="900">
+<animate attributename="opacity" begin="1.98s" dur="0.01s" fill="freeze" from="0" to="0.46"></animate>
+<animate attributename="stroke-dashoffset" begin="1.98s" dur="0.62s" fill="freeze" from="900" to="0"></animate>
+</path>
+<path class="pair-track" d="M 176 218 L 768 210" id="curve4" stroke="#a8bddf" stroke-dasharray="900" stroke-dashoffset="900">
+<animate attributename="opacity" begin="2.68s" dur="0.01s" fill="freeze" from="0" to="0.46"></animate>
+<animate attributename="stroke-dashoffset" begin="2.68s" dur="0.62s" fill="freeze" from="900" to="0"></animate>
+</path>
+<path class="pair-track" d="M 188 96 L 780 118" id="curve5" stroke="#9cb6d8" stroke-dasharray="900" stroke-dashoffset="900">
+<animate attributename="opacity" begin="3.38s" dur="0.01s" fill="freeze" from="0" to="0.46"></animate>
+<animate attributename="stroke-dashoffset" begin="3.38s" dur="0.62s" fill="freeze" from="900" to="0"></animate>
+</path>
+<circle class="sample-dot" cx="150" cy="118" fill="#355f87" r="5.4">
+<animate attributename="opacity" begin="0.10s" dur="0.18s" fill="freeze" from="0" to="1"></animate>
+</circle>
+<circle class="sample-dot" cx="732" cy="112" fill="#2f7c69" r="5.4">
+<animate attributename="opacity" begin="0.32s" dur="0.18s" fill="freeze" from="0" to="1"></animate>
+</circle>
+<circle class="sample-dot" cx="142" cy="148" fill="#355f87" r="5.0">
+<animate attributename="opacity" begin="0.80s" dur="0.18s" fill="freeze" from="0" to="1"></animate>
+</circle>
+<circle class="sample-dot" cx="744" cy="140" fill="#2f7c69" r="5.0">
+<animate attributename="opacity" begin="1.02s" dur="0.18s" fill="freeze" from="0" to="1"></animate>
+</circle>
+<circle class="sample-dot" cx="154" cy="184" fill="#355f87" r="5.2">
+<animate attributename="opacity" begin="1.50s" dur="0.18s" fill="freeze" from="0" to="1"></animate>
+</circle>
+<circle class="sample-dot" cx="754" cy="178" fill="#2f7c69" r="5.2">
+<animate attributename="opacity" begin="1.72s" dur="0.18s" fill="freeze" from="0" to="1"></animate>
+</circle>
+<circle class="sample-dot" cx="176" cy="218" fill="#355f87" r="5.0">
+<animate attributename="opacity" begin="2.20s" dur="0.18s" fill="freeze" from="0" to="1"></animate>
+</circle>
+<circle class="sample-dot" cx="768" cy="210" fill="#2f7c69" r="5.0">
+<animate attributename="opacity" begin="2.42s" dur="0.18s" fill="freeze" from="0" to="1"></animate>
+</circle>
+<circle class="sample-dot" cx="188" cy="96" fill="#355f87" r="5.1">
+<animate attributename="opacity" begin="2.90s" dur="0.18s" fill="freeze" from="0" to="1"></animate>
+</circle>
+<circle class="sample-dot" cx="780" cy="118" fill="#2f7c69" r="5.1">
+<animate attributename="opacity" begin="3.12s" dur="0.18s" fill="freeze" from="0" to="1"></animate>
+</circle>
+<circle class="travel-dot" cx="150" cy="118" fill="#c28c2d" r="5.1">
+<animate attributename="opacity" begin="4.45s" dur="0.06s" fill="freeze" from="0" to="1"></animate>
+<animate attributename="cx" begin="4.45s" dur="2.62s" fill="freeze" keytimes="0;0.66;1" values="150;732;441"></animate>
+<animate attributename="cy" begin="4.45s" dur="2.62s" fill="freeze" keytimes="0;0.66;1" values="118;112;115"></animate>
+</circle>
+<circle class="travel-dot" cx="142" cy="148" fill="#c28c2d" r="5.1">
+<animate attributename="opacity" begin="4.45s" dur="0.06s" fill="freeze" from="0" to="1"></animate>
+<animate attributename="cx" begin="4.45s" dur="2.62s" fill="freeze" keytimes="0;0.66;1" values="142;744;443"></animate>
+<animate attributename="cy" begin="4.45s" dur="2.62s" fill="freeze" keytimes="0;0.66;1" values="148;140;144"></animate>
+</circle>
+<circle class="travel-dot" cx="154" cy="184" fill="#c28c2d" r="5.1">
+<animate attributename="opacity" begin="4.45s" dur="0.06s" fill="freeze" from="0" to="1"></animate>
+<animate attributename="cx" begin="4.45s" dur="2.62s" fill="freeze" keytimes="0;0.66;1" values="154;754;454"></animate>
+<animate attributename="cy" begin="4.45s" dur="2.62s" fill="freeze" keytimes="0;0.66;1" values="184;178;181"></animate>
+</circle>
+<circle class="travel-dot" cx="176" cy="218" fill="#c28c2d" r="5.1">
+<animate attributename="opacity" begin="4.45s" dur="0.06s" fill="freeze" from="0" to="1"></animate>
+<animate attributename="cx" begin="4.45s" dur="2.62s" fill="freeze" keytimes="0;0.66;1" values="176;768;472"></animate>
+<animate attributename="cy" begin="4.45s" dur="2.62s" fill="freeze" keytimes="0;0.66;1" values="218;210;214"></animate>
+</circle>
+<circle class="travel-dot" cx="188" cy="96" fill="#c28c2d" r="5.1">
+<animate attributename="opacity" begin="4.45s" dur="0.06s" fill="freeze" from="0" to="1"></animate>
+<animate attributename="cx" begin="4.45s" dur="2.62s" fill="freeze" keytimes="0;0.66;1" values="188;780;484"></animate>
+<animate attributename="cy" begin="4.45s" dur="2.62s" fill="freeze" keytimes="0;0.66;1" values="96;118;107"></animate>
+</circle>
+</svg>
+</div>
+</figure>
+<div class="text-grid">
+<div class="bluebox">
+<span class="title">Two endpoints</span>
+<span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="bold">X</mi><mn>0</mn></msub><mo>∼</mo><msub><mi>p</mi><mn>0</mn></msub><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi mathvariant="bold">X</mi><mn>1</mn></msub><mo>∼</mo><msub><mi>p</mi><mn>1</mn></msub><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi mathvariant="bold">X</mi><mn>0</mn></msub><mo>⊥</mo><msub><mi mathvariant="bold">X</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">\mathbf{X}_0 \sim p_0,\qquad \mathbf{X}_1 \sim p_1,\qquad \mathbf{X}_0 \perp \mathbf{X}_1</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height: 0.8361em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathbf">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.8805em; vertical-align: -0.1944em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right: 2em;"></span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord"><span class="mord mathbf">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right: 2em;"></span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord"><span class="mord mathbf">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">⊥</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.8361em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathbf">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span></span></span></span></span></span>
+</div>
+<div class="greenbox">
+<span class="title">Deterministic interpolation</span>
+$$\mathbf{X}_t = T_t(\mathbf{X}_0,\mathbf{X}_1), \qquad t\in[0,1]$$
+$$p_t = \operatorname{Law}(\mathbf{X}_t)$$
+</div>
+</div>
+</div>
+</section>
+    </div>
+  </div>
+</body>
+</html>

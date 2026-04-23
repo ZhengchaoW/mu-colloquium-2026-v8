@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MU Colloquium · Slide 25 · Terminal stage: convergence of ODE trajectories at t=1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+  <link rel="stylesheet" href="../vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="shared/deck.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script defer src="../vendor/katex/katex.min.js"></script>
+  <script defer src="../vendor/katex/contrib/auto-render.min.js"></script>
+  <script defer src="shared/deck.js?v=20260421-deck-overview"></script>
+  <style>
+    /* Unified 11b-style cards */
+    .bluebox, .greenbox, .goldbox, .redbox {
+      border-radius: 8px;
+      padding: 0.65em 0.85em 0.55em;
+      margin: 0.4em 0;
+      border: none;
+      border-left: 3px solid #2f5d9c;
+      box-shadow: none;
+    }
+    .bluebox  { background: #eaf2f8; border-left-color: #2f5d9c; }
+    .greenbox { background: #edf5ea; border-left-color: #2f7a4d; }
+    .goldbox  { background: #f6f1e3; border-left-color: #c28c2d; }
+    .redbox   { background: #f7ebea; border-left-color: #a43d2d; }
+  </style>
+</head>
+<body class="modular-slide" data-prev="22-cluster-absorption.html" data-next="24-manifold-vs-discrete-rates.html" data-home="index.html">
+  <header class="modular-nav">
+    <div class="modular-nav__group">
+      <a class="" href="22-cluster-absorption.html">Prev</a>
+      <a class="" href="index.html">Deck</a>
+      <div class="modular-nav__meta">Slide 25/46</div>
+      <a class="" href="24-manifold-vs-discrete-rates.html">Next</a>
+    </div>
+  </header>
+  <div class="reveal standalone-reveal">
+    <div class="slides">
+<section>
+  <h2 data-kicker="The main theorem">Terminal stage: convergence of ODE trajectories at $t=1$</h2>
+
+  <div class="redbox" style="font-size:0.82em; line-height:1.3;">
+    <span class="title">Theorem 5.3 &mdash; Wang et al. 2025</span>
+    Assume $p$ has finite second moment, $\supp(p)$ has positive reach $\tau_\Omega>0$, and a local density lower bound.
+    Then
+    $$\Psi_1(z):=\lim_{\sigma\to 0}\Psi_\sigma(z)\text{ exists a.e.},\quad (\Psi_1)_\# p_{\mathrm{prior}}=p,\quad \|\Psi_1(z)-\Psi_\sigma(z)\|=O(\sigma^{\zeta/2}).$$
+  </div>
+
+  <div class="two-col align-center" style="gap:1.6em; margin-top:0.75em;">
+    <div>
+      <img src="../figures/winding_trajectory.png" alt="Concentric winding trajectories around a circular data manifold, with a red starting point outside the circle." style="width:100%; max-height:min(48vh, 16em); object-fit:contain;">
+    </div>
+    <div>
+      <img src="../figures/smooth_trajectory.png" alt="A circular data manifold with a blue terminal-stage path converging from a red start point to a green point on the circle." style="width:100%; max-height:min(48vh, 16em); object-fit:contain;">
+    </div>
+  </div>
+
+  <aside class="notes">
+    Keep this one spare: theorem first, then the two circle panels as a callback to the earlier circle-manifold visual.
+    The left panel shows winding trajectories around the support; the right panel shows the terminal-stage limit
+    landing on a point of the support.
+  </aside>
+</section>
+    </div>
+  </div>
+</body>
+</html>

@@ -31,7 +31,7 @@
 <section aria-label="Wide white-background outlook illustration with DATA, ARCHITECTURE, and OPTIMIZATION around a center label reading GENERALIZATION and MEMORIZATION." class="outlook-visual-slide" role="img">
 <style>
   .outlook-visual-slide {
-    padding: 0 !important;
+    padding: 0.25rem 0.45rem !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -40,10 +40,8 @@
 
   .outlook-map-figure {
     margin: 0;
-    width: min(92vw, 82rem);
-    height: min(78vh, 44rem);
-    transform: translateY(-0.2rem) scale(1.32);
-    transform-origin: center center;
+    width: min(100%, 84rem);
+    height: min(100%, 46rem);
   }
 
   .outlook-map-figure img {
@@ -53,18 +51,13 @@
     max-height: none !important;
     display: block;
     object-fit: contain;
-    object-position: center 44%;
+    object-position: center center;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1200px), (max-height: 780px) {
     .outlook-map-figure {
-      width: 96vw;
-      height: min(74vh, 38rem);
-      transform: translateY(-0.1rem) scale(1.18);
-    }
-
-    .outlook-map-figure img {
-      object-position: center 42%;
+      width: min(100%, 78rem);
+      height: min(100%, 40rem);
     }
   }
 </style>

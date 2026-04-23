@@ -18,26 +18,26 @@
   <script defer src="shared/deck.js?v=20260421-deck-overview"></script>
   <style>
     .status-before-slide h2 {
-      margin-bottom: 0.42em;
+      margin-bottom: 0.34em;
     }
     .status-layout {
       display: grid;
-      grid-template-rows: minmax(0, 1.32fr) minmax(0, 0.88fr);
-      gap: 0.68em;
+      grid-template-rows: minmax(0, 1.24fr) minmax(0, 0.82fr);
+      gap: 0.56em;
       min-height: 0;
       flex: 1 1 auto;
     }
     .status-top {
       display: grid;
       grid-template-columns: minmax(0, 1.35fr) minmax(16em, 0.65fr);
-      gap: 0.72em;
+      gap: 0.62em;
       align-items: stretch;
       min-height: 0;
     }
     .status-bottom {
       display: grid;
       grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr) minmax(0, 0.85fr);
-      gap: 0.72em;
+      gap: 0.62em;
       align-items: stretch;
       min-height: 0;
     }
@@ -59,10 +59,10 @@
       box-sizing: border-box;
     }
     .status-top .paper-crop img {
-      height: min(52vh, 18em);
+      height: min(44vh, 15.4em);
     }
     .status-bottom .paper-crop img {
-      height: min(31vh, 11em);
+      height: min(22vh, 7.8em);
     }
     .paper-crop figcaption {
       font-family: 'IBM Plex Mono', monospace;
@@ -75,7 +75,7 @@
     .status-card {
       border-left: 3px solid var(--navy);
       background: #eaf2f8;
-      padding: 0.64em 0.78em 0.58em;
+      padding: 0.56em 0.68em 0.5em;
       border-radius: 8px;
       min-width: 0;
       display: flex;
@@ -92,20 +92,77 @@
     }
     .status-card .label {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.36em;
+      font-size: 0.34em;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--ink-muted);
-      margin-bottom: 0.5em;
+      margin-bottom: 0.44em;
     }
     .status-card p {
       margin: 0;
-      font-size: 0.63em;
-      line-height: 1.35;
+      font-size: 0.59em;
+      line-height: 1.3;
       color: var(--ink);
     }
     .status-card strong {
       color: var(--navy);
+    }
+    @media (max-height: 760px) {
+      .status-before-slide h2 {
+        margin-bottom: 0.28em;
+      }
+      .status-layout {
+        grid-template-rows: minmax(0, 1.14fr) minmax(0, 0.76fr);
+        gap: 0.46em;
+      }
+      .status-top,
+      .status-bottom {
+        gap: 0.5em;
+      }
+      .status-top .paper-crop img {
+        height: min(39vh, 13.4em);
+      }
+      .status-bottom .paper-crop img {
+        height: min(17vh, 6.2em);
+      }
+      .paper-crop figcaption {
+        font-size: 0.31em;
+      }
+      .status-card {
+        padding: 0.46em 0.56em 0.42em;
+      }
+      .status-card .label {
+        font-size: 0.31em;
+        margin-bottom: 0.36em;
+      }
+      .status-card p {
+        font-size: 0.54em;
+        line-height: 1.26;
+      }
+    }
+    @media (max-height: 700px) {
+      .status-before-slide h2 {
+        font-size: 1.42em;
+      }
+      .status-layout {
+        gap: 0.4em;
+      }
+      .status-top,
+      .status-bottom {
+        gap: 0.42em;
+      }
+      .status-top .paper-crop img {
+        height: min(36vh, 12.2em);
+      }
+      .status-bottom .paper-crop img {
+        height: min(15vh, 5.3em);
+      }
+      .paper-crop figcaption {
+        font-size: 0.29em;
+      }
+      .status-card p {
+        font-size: 0.5em;
+      }
     }
   </style>
 </head>

@@ -30,75 +30,177 @@
     <div class="slides">
 <section class="refs-slide">
 <style>
-  .refs-slide .late-shell {
-    width: 100%;
-  }
-
   .refs-slide h2 {
-    margin-bottom: 0.34em;
+    margin-bottom: 0.42em;
   }
 
-  .refs-slide .late-refs-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 0.48rem;
+  .refs-slide .refs-spread {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+    gap: 0.9em;
+    align-items: stretch;
   }
 
-  .refs-slide .late-refs-stack {
-    gap: 0.48rem;
+  .refs-slide .refs-column,
+  .refs-slide .refs-stack {
+    min-width: 0;
+    min-height: 0;
   }
 
-  .refs-slide .late-panel {
-    border-radius: 12px;
-    padding: 0.48rem 0.62rem 0.5rem;
+  .refs-slide .refs-column {
+    display: flex;
+    flex-direction: column;
   }
 
-  .refs-slide .late-panel__kicker {
-    margin-bottom: 0.32rem;
-    font-size: 0.28em;
+  .refs-slide .refs-stack {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 0.7em;
+  }
+
+  .refs-slide .refs-group {
+    border-top: 2px solid rgba(31, 50, 70, 0.28);
+    padding-top: 0.48em;
+  }
+
+  .refs-slide .refs-group--diffusion {
+    height: 100%;
+  }
+
+  .refs-slide .refs-group--regularity {
+    border-top-color: rgba(47, 93, 156, 0.42);
+  }
+
+  .refs-slide .refs-group--talk {
+    border-top-color: rgba(194, 140, 45, 0.68);
+    background: linear-gradient(90deg, rgba(246, 241, 227, 0.72), rgba(255, 255, 255, 0));
+    padding: 0.52em 0.58em 0.5em;
+  }
+
+  .refs-slide .refs-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.31em;
     letter-spacing: 0.16em;
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 0.62em;
   }
 
-  .refs-slide .late-panel li {
-    font-size: 0.52em;
-    line-height: 1.22;
-    margin-bottom: 0.18em;
+  .refs-slide .refs-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.28em;
   }
 
-  .refs-slide .late-panel li:last-child {
-    margin-bottom: 0;
+  .refs-slide .refs-item {
+    display: grid;
+    grid-template-columns: 2.2em minmax(0, 1fr);
+    gap: 0.48em;
+    align-items: baseline;
+    padding-top: 0.22em;
+    border-top: 1px solid rgba(21, 32, 43, 0.09);
+    margin: 0;
+    font-size: 1em;
+  }
+
+  .refs-slide .refs-item:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .refs-slide .refs-no {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.38em;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+  }
+
+  .refs-slide .refs-cite {
+    color: var(--ink-soft);
+    font-size: 0.64em;
+    line-height: 1.18;
+  }
+
+  .refs-slide .refs-cite strong {
+    color: var(--navy);
+    font-weight: 650;
+  }
+
+  .refs-slide .refs-cite em {
+    color: var(--navy);
+    font-style: italic;
+  }
+
+  @media (max-height: 740px) {
+    .refs-slide h2 {
+      margin-bottom: 0.3em;
+    }
+    .refs-slide .refs-spread {
+      gap: 0.72em;
+    }
+    .refs-slide .refs-stack {
+      gap: 0.54em;
+    }
+    .refs-slide .refs-group {
+      padding-top: 0.38em;
+    }
+    .refs-slide .refs-group--talk {
+      padding: 0.42em 0.5em 0.4em;
+    }
+    .refs-slide .refs-list {
+      gap: 0.22em;
+    }
+    .refs-slide .refs-item {
+      grid-template-columns: 2.3em minmax(0, 1fr);
+      gap: 0.44em;
+      padding-top: 0.18em;
+    }
+    .refs-slide .refs-kicker {
+      font-size: 0.29em;
+      margin-bottom: 0.42em;
+    }
+    .refs-slide .refs-cite {
+      font-size: 0.56em;
+      line-height: 1.16;
+    }
   }
 </style>
-<div class="late-shell late-shell--wide">
 <h2 data-kicker="Cited Earlier">References used in the slides</h2>
-<div class="late-refs-grid">
-<div class="late-panel late-panel--paper">
-<div class="late-panel__kicker">Diffusion background</div>
-<ul>
-<li><strong>Sohl-Dickstein, Weiss, Maheswaranathan, Ganguli.</strong> Deep Unsupervised Learning using Nonequilibrium Thermodynamics. <em>ICML 2015.</em></li>
-<li><strong>Song, Ermon.</strong> Generative Modeling by Estimating Gradients of the Data Distribution. <em>NeurIPS 2019.</em></li>
-<li><strong>Ho, Jain, Abbeel.</strong> Denoising Diffusion Probabilistic Models. <em>NeurIPS 2020.</em></li>
-<li><strong>Song, Sohl-Dickstein, Kingma, Kumar, Ermon, Poole.</strong> Score-Based Generative Modeling through Stochastic Differential Equations. <em>ICLR 2021.</em></li>
-<li><strong>Karras, Aittala, Aila, Laine.</strong> Elucidating the Design Space of Diffusion-Based Generative Models (EDM). <em>NeurIPS 2022.</em></li>
-</ul>
-</div>
-<div class="late-refs-stack">
-<div class="late-panel late-panel--paper">
-<div class="late-panel__kicker">Flow matching and regularity</div>
-<ul>
-<li><strong>Lipman, Chen, Ben-Hamu, Nickel, Le.</strong> Flow Matching for Generative Modeling. <em>ICLR 2023.</em></li>
-<li><strong>Gao, Huang, Jiao.</strong> Gaussian Interpolation Flows. <em>JMLR 25(253), 2024.</em></li>
-<li><strong>Ambrosio, Crippa.</strong> Existence, uniqueness, stability and differentiability properties of the flow associated to weakly differentiable vector fields. <em>Lecture Notes UMI 5, 2008.</em></li>
-</ul>
-</div>
-<div class="late-panel late-panel--paper">
-<div class="late-panel__kicker">This talk</div>
-<ul>
-<li><strong>Wan, Wang, Mishne, Wang.</strong> Elucidating Flow Matching ODE Dynamics via Data Geometry and Denoisers. <em>ICML 2025 / PMLR 267.</em></li>
-<li><strong>Dodson, Gao, Wang, Wang, Wan.</strong> Two Calm Ends and the Wild Middle: A Geometric Picture of Memorization in Diffusion Models. <em>arXiv:2602.17846, 2026.</em></li>
-</ul>
-</div>
-</div>
-</div>
+<div class="refs-spread">
+  <div class="refs-column">
+    <div class="refs-group refs-group--diffusion">
+      <div class="refs-kicker">Diffusion background</div>
+      <ol class="refs-list">
+        <li class="refs-item"><span class="refs-no">01</span><span class="refs-cite"><strong>Sohl-Dickstein, Weiss, Maheswaranathan, Ganguli.</strong> Deep Unsupervised Learning using Nonequilibrium Thermodynamics. <em>ICML 2015.</em></span></li>
+        <li class="refs-item"><span class="refs-no">02</span><span class="refs-cite"><strong>Song, Ermon.</strong> Generative Modeling by Estimating Gradients of the Data Distribution. <em>NeurIPS 2019.</em></span></li>
+        <li class="refs-item"><span class="refs-no">03</span><span class="refs-cite"><strong>Ho, Jain, Abbeel.</strong> Denoising Diffusion Probabilistic Models. <em>NeurIPS 2020.</em></span></li>
+        <li class="refs-item"><span class="refs-no">04</span><span class="refs-cite"><strong>Song, Sohl-Dickstein, Kingma, Kumar, Ermon, Poole.</strong> Score-Based Generative Modeling through Stochastic Differential Equations. <em>ICLR 2021.</em></span></li>
+        <li class="refs-item"><span class="refs-no">05</span><span class="refs-cite"><strong>Karras, Aittala, Aila, Laine.</strong> Elucidating the Design Space of Diffusion-Based Generative Models (EDM). <em>NeurIPS 2022.</em></span></li>
+      </ol>
+    </div>
+  </div>
+  <div class="refs-stack">
+    <div class="refs-group refs-group--regularity">
+      <div class="refs-kicker">Flow matching and regularity</div>
+      <ol class="refs-list">
+        <li class="refs-item"><span class="refs-no">06</span><span class="refs-cite"><strong>Lipman, Chen, Ben-Hamu, Nickel, Le.</strong> Flow Matching for Generative Modeling. <em>ICLR 2023.</em></span></li>
+        <li class="refs-item"><span class="refs-no">07</span><span class="refs-cite"><strong>Gao, Huang, Jiao.</strong> Gaussian Interpolation Flows. <em>JMLR 25(253), 2024.</em></span></li>
+        <li class="refs-item"><span class="refs-no">08</span><span class="refs-cite"><strong>Ambrosio, Crippa.</strong> Existence, uniqueness, stability and differentiability properties of the flow associated to weakly differentiable vector fields. <em>Lecture Notes UMI 5, 2008.</em></span></li>
+      </ol>
+    </div>
+    <div class="refs-group refs-group--talk">
+      <div class="refs-kicker">This talk</div>
+      <ol class="refs-list">
+        <li class="refs-item"><span class="refs-no">09</span><span class="refs-cite"><strong>Wan, Wang, Mishne, Wang.</strong> Elucidating Flow Matching ODE Dynamics via Data Geometry and Denoisers. <em>ICML 2025 / PMLR 267.</em></span></li>
+        <li class="refs-item"><span class="refs-no">10</span><span class="refs-cite"><strong>Dodson, Gao, Wang, Wang, Wan.</strong> Two Calm Ends and the Wild Middle: A Geometric Picture of Memorization in Diffusion Models. <em>arXiv:2602.17846, 2026.</em></span></li>
+      </ol>
+    </div>
+  </div>
 </div>
 </section>
     </div>

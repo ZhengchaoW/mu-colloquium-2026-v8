@@ -64,6 +64,10 @@
       white-space: nowrap;
     }
     @media (max-width: 1280px), (max-aspect-ratio: 16/10) {
+      .danger-zone-slide .late-grid {
+        grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+      }
+
       .late-figure--gap img {
         max-height: min(32vh, 18rem);
       }
@@ -74,6 +78,43 @@
 
       .danger-frame img {
         max-height: min(18vh, 9.2rem);
+      }
+    }
+
+    @media (max-height: 700px) {
+      .danger-zone-slide .late-backlink {
+        margin-bottom: 0.3em;
+      }
+
+      .danger-zone-slide h2 {
+        margin-bottom: 0.24em;
+      }
+
+      .danger-zone-slide .late-lead {
+        margin-bottom: 0.24em;
+        font-size: 0.52em;
+        line-height: 1.26;
+      }
+
+      .danger-zone-slide .late-panel {
+        padding: 0.48rem 0.58rem 0.5rem;
+        border-radius: 12px;
+      }
+
+      .danger-zone-slide .late-panel__kicker {
+        margin-bottom: 0.24rem;
+      }
+
+      .danger-zone-slide .late-stack {
+        gap: 0.4rem;
+      }
+
+      .danger-zone-slide .late-figure--gap img {
+        max-height: min(27vh, 15rem);
+      }
+
+      .danger-zone-slide .danger-frame img {
+        max-height: min(13vh, 7.2rem);
       }
     }
   </style>
@@ -89,7 +130,7 @@
   </header>
 <div class="reveal standalone-reveal">
     <div class="slides">
-<section>
+<section class="danger-zone-slide">
 <div class="late-shell">
   <a class="late-backlink" href="37-intermediate-sigma-the-wild-middle.html">Back to intermediate stage</a>
   <h2 data-kicker="Empirical observation · Figure 4 + danger-zone intuition">Removing danger zone could mitigate memorization</h2>

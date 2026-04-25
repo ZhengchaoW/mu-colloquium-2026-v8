@@ -1,10 +1,10 @@
-# MU Colloquium v8 Public-Computer Bundle
+# MU Colloquium Final Public-Computer Bundle
 
 This is the lean presentation bundle for the current colloquium deck.
 
 It keeps only the files needed to serve the website:
 
-- `colloquium-academic-v8-modular-rebuilt/` — the live slide deck
+- `colloquium-academic-final-modular-rebuilt/` — the live slide deck
 - `figures/` — only the top-level figures referenced by the live deck
 - `vendor/` — the KaTeX assets referenced by the slides
 - `.nojekyll` — makes the bundle safe for direct GitHub Pages static serving

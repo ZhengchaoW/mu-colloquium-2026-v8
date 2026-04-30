@@ -1,41 +1,32 @@
-# MU Colloquium Final Public-Computer Bundle
+# MU Colloquium 2026
 
-This is the lean presentation bundle for the current colloquium deck.
+Static HTML slide deck for the University of Missouri colloquium talk:
 
-It keeps only the files needed to serve the website:
+**Data Geometry, Flow Dynamics, and Memorization in Diffusion Models**
 
-- `colloquium-academic-final-modular-rebuilt/` — the live slide deck
-- `figures/` — only the top-level figures referenced by the live deck
-- `vendor/` — the KaTeX assets referenced by the slides
-- `.nojekyll` — makes the bundle safe for direct GitHub Pages static serving
-- `index.html` — redirects the site root to the deck overview
+View the published deck:
 
-## Best presentation setup
+https://zhengchao-wan.com/mu-colloquium-2026-final/
 
-The cleanest option is **GitHub Pages**.
+## About
 
-Why:
+This repository contains the final web-published version of the talk. The slides are built as a modular HTML deck, with one HTML file per slide plus a deck overview page.
 
-- this deck is already a static HTML/CSS/JS site
-- the site root in this bundle redirects directly to the deck overview
-- all internal slide links are relative, so they work when published from a repo root or a `docs/` folder
+The talk introduces diffusion and flow-matching dynamics, then connects the geometry of denoisers to memorization behavior in trained diffusion models.
 
-## How to use this bundle
+## Repository Layout
 
-### Option A — GitHub Pages
+- `index.html` redirects the repository root to the deck overview.
+- `colloquium-academic-final-modular-rebuilt/` contains the slide pages, deck overview, previews, and shared CSS/JS.
+- `figures/` contains the images referenced by the published slides.
+- `vendor/katex/` contains the local KaTeX runtime used for math rendering.
+- `serve-local.sh` starts a small local web server for previewing the deck.
 
-1. Create a new repository for the talk, or use a clean branch/folder in an existing repo.
-2. Upload the contents of this bundle as the published site source.
-3. Enable GitHub Pages for that source.
-4. Open the site root URL in the public-computer browser.
-
-Because `.nojekyll` is included, GitHub Pages can serve these files directly without trying to run Jekyll over them.
-
-### Option B — Local browser with a tiny server
-
-From this folder:
+## Run Locally
 
 ```bash
+git clone https://github.com/ZhengchaoW/mu-colloquium-2026-final.git
+cd mu-colloquium-2026-final
 ./serve-local.sh
 ```
 
@@ -45,25 +36,14 @@ Then open:
 http://127.0.0.1:8000/
 ```
 
-You can also choose a port:
+To choose a different port:
 
 ```bash
 ./serve-local.sh 8010
 ```
 
-## Important practical note
+## Notes
 
-This bundle is lean, but the current deck still pulls **Google Fonts** and **Reveal.js CSS/JS from CDNs**.
+The deck is published from the `main` branch with GitHub Pages.
 
-So:
-
-- **GitHub Pages + internet** is the best primary plan
-- **local bundle + internet** also works
-- **fully offline presentation** is not yet hardened
-
-## Recommended next steps
-
-1. Use **GitHub Pages** as the primary presentation URL.
-2. Keep this bundle on a USB drive as the local fallback.
-3. Bring a single exported PDF as the emergency backup.
-4. If you want true offline robustness, the next packaging pass should vendor Reveal.js and fonts locally.
+Most presentation assets are committed in this repository. A few browser resources, such as Google Fonts and Reveal.js assets, are still loaded from public CDNs, so the HTML deck is intended for online viewing. For a fully offline presentation, use an exported PDF or vendor the remaining CDN dependencies.
